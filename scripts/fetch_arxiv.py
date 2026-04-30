@@ -153,7 +153,7 @@ if __name__ == "__main__":
     paper = papers[0]  # Take the most recent
     print(f"   Selected: {paper['title'][:70]}...")
 
-    print("🧠 Explaining with Claude...")
+    print("🧠 Explaining paper...")
     explanation = explain_paper(paper)
 
     write_file(paper, explanation)

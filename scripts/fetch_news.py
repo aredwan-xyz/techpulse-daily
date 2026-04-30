@@ -75,7 +75,7 @@ def generate_digest(stories: list[dict]) -> str:
 def write_file(digest: str, stories: list[dict]):
     content = f"""# 📰 Tech News Digest — {DAY_NAME}
 
-> *Curated daily by [DevPulse](https://github.com/aredwan-xyz/devpulse-daily) · Powered by Claude AI*
+> *Curated daily by [DevPulse](https://github.com/aredwan-xyz/devpulse-daily) · Powered by AI*
 
 ---
 
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     stories = fetch_hackernews_top(20)
     print(f"   Found {len(stories)} stories")
 
-    print("🤖 Generating digest with Claude...")
+    print("🤖 Generating digest...")
     digest = generate_digest(stories)
 
     write_file(digest, stories)

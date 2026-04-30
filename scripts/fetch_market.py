@@ -138,7 +138,7 @@ if __name__ == "__main__":
     print("📊 Fetching HN hiring context...")
     hn_context = fetch_hn_hiring_snippet()
 
-    print("🤖 Generating market pulse with Claude...")
+    print("🤖 Generating market pulse...")
     market_pulse = generate_market_pulse(hn_context)
 
     print("📚 Generating learning pick...")

@@ -176,7 +176,7 @@ if __name__ == "__main__":
     else:
         print(f"   Found {len(cves)} HIGH/CRITICAL CVEs")
 
-    print("🤖 Generating developer bulletin with Claude...")
+    print("🤖 Generating developer bulletin...")
     bulletin = generate_security_bulletin(cves, api_available)
 
     write_file(cves, bulletin, api_available)

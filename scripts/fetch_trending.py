@@ -44,8 +44,10 @@ def fetch_trending_repos(language: str = "", since: str = "daily") -> list[dict]
     except Exception as e:
         print(f"   Primary trending API unavailable ({e}), falling back to GitHub Search API...")
 
-    # Fallback: GitHub Search API (public, no auth needed)
-    url = "https://api.github.com/search/repositories?q=created:>2026-01-01&sort=stars&order=desc&per_page=10"
+    # Fallback: GitHub Search API — last 30 days of activity
+    import datetime
+    cutoff = (datetime.date.today() - datetime.timedelta(days=30)).isoformat()
+    url = f"https://api.github.com/search/repositories?q=created:>{cutoff}&sort=stars&order=desc&per_page=10"
     req = urllib.request.Request(
         url,
         headers={
@@ -137,7 +139,7 @@ if __name__ == "__main__":
     repos = fetch_trending_repos()
     print(f"   Found {len(repos)} trending repos")
 
-    print("🤖 Generating insights with Claude...")
+    print("🤖 Generating insights...")
     insights = generate_insights(repos)
 
     write_file(repos, insights)
