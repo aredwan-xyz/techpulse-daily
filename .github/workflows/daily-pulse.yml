@@ -1,0 +1,452 @@
+name: 🤖 DevPulse Daily Feed
+
+on:
+  schedule:
+    # 10 jobs staggered across the day — creates a realistic commit cadence
+    - cron: "0 6 * * *"    # Job 1: News Digest
+    - cron: "15 6 * * *"   # Job 2: GitHub Trending
+    - cron: "0 7 * * *"    # Job 3: AI Research Paper
+    - cron: "15 7 * * *"   # Job 4: Coding Challenge
+    - cron: "0 8 * * *"    # Job 5: Tool Spotlight
+    - cron: "15 8 * * *"   # Job 6: Prompt of the Day
+    - cron: "0 9 * * *"    # Job 7: Security Pulse
+    - cron: "15 9 * * *"   # Job 8: Market Pulse
+    - cron: "0 10 * * *"   # Job 9: Learning Pick
+    - cron: "15 10 * * *"  # Job 10: Daily Index & Archive
+
+  workflow_dispatch:
+    inputs:
+      jobs:
+        description: "Which jobs to run (comma-separated: news,trending,research,challenge,tool,prompt,security,market,learning,index or 'all')"
+        required: false
+        default: "all"
+
+env:
+  # ── Choose ONE free provider — set the matching secret in repo Settings ──
+  # Option A (recommended): Google Gemini — free 1,500 req/day
+  #   → Add secret: GEMINI_API_KEY  (get free at aistudio.google.com)
+  GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+  # Option B: GitHub Models — free, uses your existing GITHUB_TOKEN
+  #   → No extra secret needed, just uncomment below and comment out GEMINI line
+  # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Option C: Groq — free 14,400 req/day with Llama 3
+  #   → Add secret: GROQ_API_KEY  (get free at console.groq.com)
+  # GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+
+  # ── Optional: enhances news feed quality ──
+  NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+
+  GIT_USER_NAME: "DevPulse Bot"
+  GIT_USER_EMAIL: "devpulse@users.noreply.github.com"
+
+jobs:
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 1: 📰 Tech News Digest
+  # ─────────────────────────────────────────────────────────────────
+  news-digest:
+    name: "📰 Tech News Digest"
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'workflow_dispatch' &&
+      (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'news')) ||
+      (github.event_name == 'schedule' &&
+       github.event.schedule == '0 6 * * *')
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate news digest
+        run: python scripts/fetch_news.py
+
+      - name: Commit news digest
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          git add feeds/news/
+          git diff --staged --quiet || git commit -m "📰 [$DATE] Tech News Digest — AI & dev top stories"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 2: 🔥 GitHub Trending
+  # ─────────────────────────────────────────────────────────────────
+  github-trending:
+    name: "🔥 GitHub Trending"
+    runs-on: ubuntu-latest
+    needs: news-digest
+    if: |
+      always() && (
+        github.event_name == 'workflow_dispatch' &&
+        (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'trending')) ||
+        (github.event_name == 'schedule' &&
+         github.event.schedule == '15 6 * * *')
+      )
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch GitHub trending
+        run: python scripts/fetch_trending.py
+
+      - name: Commit trending snapshot
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          git add feeds/trending/
+          git diff --staged --quiet || git commit -m "🔥 [$DATE] GitHub Trending — Today's hottest repos"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 3: 🤖 AI Research Paper
+  # ─────────────────────────────────────────────────────────────────
+  ai-research:
+    name: "🤖 AI Research Paper"
+    runs-on: ubuntu-latest
+    needs: github-trending
+    if: |
+      always() && (
+        github.event_name == 'workflow_dispatch' &&
+        (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'research')) ||
+        (github.event_name == 'schedule' &&
+         github.event.schedule == '0 7 * * *')
+      )
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch and summarize AI paper
+        run: python scripts/fetch_arxiv.py
+
+      - name: Commit paper summary
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          git add feeds/research/
+          git diff --staged --quiet || git commit -m "🤖 [$DATE] AI Research — Today's paper explained in plain English"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 4: 💡 Coding Challenge
+  # ─────────────────────────────────────────────────────────────────
+  coding-challenge:
+    name: "💡 Coding Challenge"
+    runs-on: ubuntu-latest
+    needs: ai-research
+    if: |
+      always() && (
+        github.event_name == 'workflow_dispatch' &&
+        (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'challenge')) ||
+        (github.event_name == 'schedule' &&
+         github.event.schedule == '15 7 * * *')
+      )
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate coding challenge
+        run: python scripts/generate_challenge.py
+
+      - name: Commit challenge
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          TITLE=$(cat /tmp/challenge_title.txt 2>/dev/null || echo "Daily Challenge")
+          git add feeds/challenges/
+          git diff --staged --quiet || git commit -m "💡 [$DATE] Challenge: $TITLE"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 5: 🛠️ Tool Spotlight
+  # ─────────────────────────────────────────────────────────────────
+  tool-spotlight:
+    name: "🛠️ Tool Spotlight"
+    runs-on: ubuntu-latest
+    needs: coding-challenge
+    if: |
+      always() && (
+        github.event_name == 'workflow_dispatch' &&
+        (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'tool')) ||
+        (github.event_name == 'schedule' &&
+         github.event.schedule == '0 8 * * *')
+      )
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate tool spotlight
+        run: python scripts/generate_tool.py
+
+      - name: Commit tool spotlight
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          TOOL=$(cat /tmp/tool_name.txt 2>/dev/null || echo "Dev Tool")
+          git add feeds/tools/
+          git diff --staged --quiet || git commit -m "🛠️ [$DATE] Tool Spotlight: $TOOL"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 6: 🎯 Prompt of the Day
+  # ─────────────────────────────────────────────────────────────────
+  prompt-of-the-day:
+    name: "🎯 Prompt of the Day"
+    runs-on: ubuntu-latest
+    needs: tool-spotlight
+    if: |
+      always() && (
+        github.event_name == 'workflow_dispatch' &&
+        (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'prompt')) ||
+        (github.event_name == 'schedule' &&
+         github.event.schedule == '15 8 * * *')
+      )
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate daily prompt
+        run: python scripts/generate_prompt.py
+
+      - name: Commit prompt
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          git add feeds/prompts/
+          git diff --staged --quiet || git commit -m "🎯 [$DATE] Prompt of the Day — Battle-tested LLM prompt"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 7: 🔐 Security Pulse
+  # ─────────────────────────────────────────────────────────────────
+  security-pulse:
+    name: "🔐 Security Pulse"
+    runs-on: ubuntu-latest
+    needs: prompt-of-the-day
+    if: |
+      always() && (
+        github.event_name == 'workflow_dispatch' &&
+        (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'security')) ||
+        (github.event_name == 'schedule' &&
+         github.event.schedule == '0 9 * * *')
+      )
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch security pulse
+        run: python scripts/fetch_security.py
+
+      - name: Commit security bulletin
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          git add feeds/security/
+          git diff --staged --quiet || git commit -m "🔐 [$DATE] Security Pulse — CVEs & advisories summarized"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 8: 📊 Market Pulse
+  # ─────────────────────────────────────────────────────────────────
+  market-pulse:
+    name: "📊 Market Pulse"
+    runs-on: ubuntu-latest
+    needs: security-pulse
+    if: |
+      always() && (
+        github.event_name == 'workflow_dispatch' &&
+        (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'market')) ||
+        (github.event_name == 'schedule' &&
+         github.event.schedule == '15 9 * * *')
+      )
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch market pulse
+        run: python scripts/fetch_market.py
+
+      - name: Commit market data
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          git add feeds/market/
+          git diff --staged --quiet || git commit -m "📊 [$DATE] Market Pulse — AI jobs & skills in demand"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 9: 📚 Learning Pick
+  # ─────────────────────────────────────────────────────────────────
+  learning-pick:
+    name: "📚 Learning Pick"
+    runs-on: ubuntu-latest
+    needs: market-pulse
+    if: |
+      always() && (
+        github.event_name == 'workflow_dispatch' &&
+        (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'learning')) ||
+        (github.event_name == 'schedule' &&
+         github.event.schedule == '0 10 * * *')
+      )
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate learning pick
+        run: python scripts/generate_learning.py
+
+      - name: Commit learning pick
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          git add feeds/learning/
+          git diff --staged --quiet || git commit -m "📚 [$DATE] Learning Pick — Best resource of the day"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─────────────────────────────────────────────────────────────────
+  # JOB 10: 🗓️ Daily Index & Archive (FINAL JOB)
+  # ─────────────────────────────────────────────────────────────────
+  daily-index:
+    name: "🗓️ Daily Index & Archive"
+    runs-on: ubuntu-latest
+    needs: learning-pick
+    if: |
+      always() && (
+        github.event_name == 'workflow_dispatch' &&
+        (github.event.inputs.jobs == 'all' || contains(github.event.inputs.jobs, 'index')) ||
+        (github.event_name == 'schedule' &&
+         github.event.schedule == '15 10 * * *')
+      )
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build daily archive & update index
+        run: python scripts/update_index.py
+
+      - name: Commit index update
+        run: |
+          git config user.name "${{ env.GIT_USER_NAME }}"
+          git config user.email "${{ env.GIT_USER_EMAIL }}"
+          DATE=$(date +%Y-%m-%d)
+          git add archive/ INDEX.md STATS.md
+          git diff --staged --quiet || git commit -m "🗓️ [$DATE] Daily Index — All feeds archived & indexed"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
