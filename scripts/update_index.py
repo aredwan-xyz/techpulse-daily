@@ -8,6 +8,7 @@ updates the master INDEX.md, and updates STATS.md.
 import datetime
 import pathlib
 import glob
+import re
 
 DATE = datetime.date.today().isoformat()
 DAY_NAME = datetime.date.today().strftime("%A, %B %d %Y")
@@ -276,6 +277,46 @@ def update_stats():
     print("✅ STATS.md updated")
 
 
+def update_readme():
+    """Rewrite the AUTO-UPDATED section in README.md with today's feed links."""
+    readme_path = pathlib.Path("README.md")
+    if not readme_path.exists():
+        print("⚠️  README.md not found, skipping")
+        return
+
+    content = readme_path.read_text(encoding="utf-8")
+
+    new_section = (
+        f"<!-- AUTO-UPDATED DAILY — DO NOT EDIT MANUALLY -->\n"
+        f"> *Last updated: {DATE} · [Full archive](archive/)*\n\n"
+        f"| Feed | Today's Issue |\n"
+        f"|---|---|\n"
+        f"| 📰 Tech News | [Read →](feeds/news/{DATE}.md) |\n"
+        f"| 🔥 GitHub Trending | [Read →](feeds/trending/{DATE}.md) |\n"
+        f"| 🤖 AI Research | [Read →](feeds/research/{DATE}.md) |\n"
+        f"| 💡 Coding Challenge | [Read →](feeds/challenges/{DATE}.md) |\n"
+        f"| 🛠️ Tool Spotlight | [Read →](feeds/tools/{DATE}.md) |\n"
+        f"| 🎯 Prompt of the Day | [Read →](feeds/prompts/{DATE}.md) |\n"
+        f"| 🔐 Security Pulse | [Read →](feeds/security/{DATE}.md) |\n"
+        f"| 📊 Market Pulse | [Read →](feeds/market/{DATE}.md) |\n"
+        f"| 📚 Learning Pick | [Read →](feeds/learning/{DATE}.md) |"
+    )
+
+    updated = re.sub(
+        r"<!-- AUTO-UPDATED DAILY — DO NOT EDIT MANUALLY -->.*?(?=\n---)",
+        new_section,
+        content,
+        flags=re.DOTALL,
+    )
+
+    if updated == content:
+        print("⚠️  README.md auto-update marker not found, skipping")
+        return
+
+    readme_path.write_text(updated, encoding="utf-8")
+    print("✅ README.md updated with today's feed links")
+
+
 if __name__ == "__main__":
     print("🗓️ Building daily archive...")
     build_daily_archive()
@@ -285,5 +326,8 @@ if __name__ == "__main__":
 
     print("📈 Updating stats...")
     update_stats()
+
+    print("📝 Updating README...")
+    update_readme()
 
     print("✅ All done!")

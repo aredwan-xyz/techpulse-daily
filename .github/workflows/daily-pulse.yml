@@ -41,8 +41,8 @@ env:
   # ── Optional: enhances news feed quality ──
   NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
 
-  GIT_USER_NAME: "DevPulse Bot"
-  GIT_USER_EMAIL: "devpulse@users.noreply.github.com"
+  GIT_USER_NAME: "aredwan-xyz"
+  GIT_USER_EMAIL: "aredwan-xyz@users.noreply.github.com"
 
 jobs:
   # ─────────────────────────────────────────────────────────────────
@@ -419,7 +419,7 @@ jobs:
           git config user.name "${{ env.GIT_USER_NAME }}"
           git config user.email "${{ env.GIT_USER_EMAIL }}"
           DATE=$(date +%Y-%m-%d)
-          git add archive/ INDEX.md STATS.md
+          git add archive/ INDEX.md STATS.md README.md
           git diff --staged --quiet || git commit -m "🗓️ [$DATE] Daily Index — All feeds archived & indexed"
           git pull --rebase origin main
           git push origin main
