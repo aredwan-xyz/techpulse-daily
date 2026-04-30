@@ -28,12 +28,11 @@ env:
   GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
   # Option B: GitHub Models — free, uses your existing GITHUB_TOKEN
-  #   → No extra secret needed, just uncomment below and comment out GEMINI line
-  # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # Option C: Groq — free 14,400 req/day with Llama 3
   #   → Add secret: GROQ_API_KEY  (get free at console.groq.com)
-  # GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+  GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
 
   # ── Optional: enhances news feed quality ──
   NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
