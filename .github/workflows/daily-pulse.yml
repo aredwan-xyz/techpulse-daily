@@ -58,9 +58,9 @@ jobs:
       (github.event_name == 'schedule' &&
        github.event.schedule == '0 6 * * *')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -96,9 +96,9 @@ jobs:
          github.event.schedule == '15 6 * * *')
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -134,9 +134,9 @@ jobs:
          github.event.schedule == '0 7 * * *')
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -172,9 +172,9 @@ jobs:
          github.event.schedule == '15 7 * * *')
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -211,9 +211,9 @@ jobs:
          github.event.schedule == '0 8 * * *')
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -250,9 +250,9 @@ jobs:
          github.event.schedule == '15 8 * * *')
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -288,9 +288,9 @@ jobs:
          github.event.schedule == '0 9 * * *')
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -326,9 +326,9 @@ jobs:
          github.event.schedule == '15 9 * * *')
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -364,9 +364,9 @@ jobs:
          github.event.schedule == '0 10 * * *')
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -402,9 +402,9 @@ jobs:
          github.event.schedule == '15 10 * * *')
       )
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
