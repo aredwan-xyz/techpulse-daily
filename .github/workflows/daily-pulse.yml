@@ -21,6 +21,10 @@ on:
         required: false
         default: "all"
 
+permissions:
+  contents: write
+  models: read
+
 env:
   # ── Choose ONE free provider — set the matching secret in repo Settings ──
   # Option A (recommended): Google Gemini — free 1,500 req/day

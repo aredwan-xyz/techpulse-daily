@@ -12,7 +12,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
-_GEMINI_MODELS = ["gemini-2.0-flash", "gemini-1.5-flash"]
+_GEMINI_MODELS = ["gemini-2.0-flash", "gemini-2.0-flash-lite"]
 _GROQ_MODEL = "llama-3.3-70b-versatile"
 _GITHUB_MODEL = "gpt-4o-mini"
 
