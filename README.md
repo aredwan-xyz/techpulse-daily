@@ -90,14 +90,19 @@ devpulse-daily/
 ## 🔥 Today's Digest
 
 <!-- AUTO-UPDATED DAILY — DO NOT EDIT MANUALLY -->
-> *Last updated: see [today's archive](archive/)*
+> *Last updated: 2026-04-30 · [Full archive](archive/)*
 
-📰 **[Today's News →](feeds/news/)**  
-🔥 **[Today's Trending →](feeds/trending/)**  
-🤖 **[Today's Research →](feeds/research/)**  
-💡 **[Today's Challenge →](feeds/challenges/)**  
-🎯 **[Today's Prompt →](feeds/prompts/)**
-
+| Feed | Today's Issue |
+|---|---|
+| 📰 Tech News | [Read →](feeds/news/2026-04-30.md) |
+| 🔥 GitHub Trending | [Read →](feeds/trending/2026-04-30.md) |
+| 🤖 AI Research | [Read →](feeds/research/2026-04-30.md) |
+| 💡 Coding Challenge | [Read →](feeds/challenges/2026-04-30.md) |
+| 🛠️ Tool Spotlight | [Read →](feeds/tools/2026-04-30.md) |
+| 🎯 Prompt of the Day | [Read →](feeds/prompts/2026-04-30.md) |
+| 🔐 Security Pulse | [Read →](feeds/security/2026-04-30.md) |
+| 📊 Market Pulse | [Read →](feeds/market/2026-04-30.md) |
+| 📚 Learning Pick | [Read →](feeds/learning/2026-04-30.md) |
 ---
 
 ## ⚙️ How It Works
