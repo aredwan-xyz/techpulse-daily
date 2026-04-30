@@ -43,6 +43,7 @@ env:
 
   GIT_USER_NAME: "aredwan-xyz"
   GIT_USER_EMAIL: "aredwan-xyz@users.noreply.github.com"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   # ─────────────────────────────────────────────────────────────────
