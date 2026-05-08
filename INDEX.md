@@ -2,7 +2,7 @@
 
 > *Auto-updated daily · [Back to README](README.md)*
 
-**Last updated:** 2026-05-07
+**Last updated:** 2026-05-08
 
 ---
 
@@ -10,6 +10,7 @@
 
 | Date | Day | Feeds |
 |---|---|---|
+| [2026-05-08](archive/2026/05/2026-05-08.md) | Friday, May 08 | [📰](feeds/news/2026-05-08.md) [🔥](feeds/trending/2026-05-08.md) [🤖](feeds/research/2026-05-08.md) [💡](feeds/challenges/2026-05-08.md) [🛠️](feeds/tools/2026-05-08.md) [🎯](feeds/prompts/2026-05-08.md) [🔐](feeds/security/2026-05-08.md) [📊](feeds/market/2026-05-08.md) [📚](feeds/learning/2026-05-08.md) |
 | [2026-05-07](archive/2026/05/2026-05-07.md) | Thursday, May 07 | [📰](feeds/news/2026-05-07.md) [🔥](feeds/trending/2026-05-07.md) [🤖](feeds/research/2026-05-07.md) [💡](feeds/challenges/2026-05-07.md) [🛠️](feeds/tools/2026-05-07.md) [🎯](feeds/prompts/2026-05-07.md) [🔐](feeds/security/2026-05-07.md) [📊](feeds/market/2026-05-07.md) [📚](feeds/learning/2026-05-07.md) |
 | [2026-05-06](archive/2026/05/2026-05-06.md) | Wednesday, May 06 | [📰](feeds/news/2026-05-06.md) [🔥](feeds/trending/2026-05-06.md) [🤖](feeds/research/2026-05-06.md) [💡](feeds/challenges/2026-05-06.md) [🛠️](feeds/tools/2026-05-06.md) [🎯](feeds/prompts/2026-05-06.md) [🔐](feeds/security/2026-05-06.md) [📊](feeds/market/2026-05-06.md) [📚](feeds/learning/2026-05-06.md) |
 | [2026-05-05](archive/2026/05/2026-05-05.md) | Tuesday, May 05 | [📰](feeds/news/2026-05-05.md) [🔥](feeds/trending/2026-05-05.md) [🤖](feeds/research/2026-05-05.md) [💡](feeds/challenges/2026-05-05.md) [🛠️](feeds/tools/2026-05-05.md) [🎯](feeds/prompts/2026-05-05.md) [🔐](feeds/security/2026-05-05.md) [📊](feeds/market/2026-05-05.md) [📚](feeds/learning/2026-05-05.md) |
@@ -25,15 +26,15 @@
 
 | Feed | Latest | Archive |
 |---|---|---|
-| 📰 Tech News | [Today](feeds/news/2026-05-07.md) | [All Issues](feeds/news/) |
-| 🔥 GitHub Trending | [Today](feeds/trending/2026-05-07.md) | [All Issues](feeds/trending/) |
-| 🤖 AI Research | [Today](feeds/research/2026-05-07.md) | [All Issues](feeds/research/) |
-| 💡 Coding Challenges | [Today](feeds/challenges/2026-05-07.md) | [All Issues](feeds/challenges/) |
-| 🛠️ Tool Spotlights | [Today](feeds/tools/2026-05-07.md) | [All Issues](feeds/tools/) |
-| 🎯 Prompts | [Today](feeds/prompts/2026-05-07.md) | [All Issues](feeds/prompts/) |
-| 🔐 Security | [Today](feeds/security/2026-05-07.md) | [All Issues](feeds/security/) |
-| 📊 Market Pulse | [Today](feeds/market/2026-05-07.md) | [All Issues](feeds/market/) |
-| 📚 Learning | [Today](feeds/learning/2026-05-07.md) | [All Issues](feeds/learning/) |
+| 📰 Tech News | [Today](feeds/news/2026-05-08.md) | [All Issues](feeds/news/) |
+| 🔥 GitHub Trending | [Today](feeds/trending/2026-05-08.md) | [All Issues](feeds/trending/) |
+| 🤖 AI Research | [Today](feeds/research/2026-05-08.md) | [All Issues](feeds/research/) |
+| 💡 Coding Challenges | [Today](feeds/challenges/2026-05-08.md) | [All Issues](feeds/challenges/) |
+| 🛠️ Tool Spotlights | [Today](feeds/tools/2026-05-08.md) | [All Issues](feeds/tools/) |
+| 🎯 Prompts | [Today](feeds/prompts/2026-05-08.md) | [All Issues](feeds/prompts/) |
+| 🔐 Security | [Today](feeds/security/2026-05-08.md) | [All Issues](feeds/security/) |
+| 📊 Market Pulse | [Today](feeds/market/2026-05-08.md) | [All Issues](feeds/market/) |
+| 📚 Learning | [Today](feeds/learning/2026-05-08.md) | [All Issues](feeds/learning/) |
 
 ---
 
@@ -42,7 +43,7 @@
 | Year | Month | Issues |
 |---|---|---|
 | 2026 | [April](archive/2026/04/) | 1 issues |
-| 2026 | [May](archive/2026/05/) | 7 issues |
+| 2026 | [May](archive/2026/05/) | 8 issues |
 
 ---
 
