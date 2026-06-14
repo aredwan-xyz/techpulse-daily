@@ -106,7 +106,7 @@ def write_file(challenge: dict):
 
     content = f"""# 💡 Coding Challenge #{DAY_NUMBER} — {DAY_NAME}
 
-> *Daily challenge by [DevPulse](https://github.com/aredwan-xyz/devpulse-daily)*
+> *Daily challenge by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*
 
 **Difficulty:** {"🟢" if "Easy" in raw else "🟡" if "Medium" in raw else "🔴"} {DIFFICULTY}
 **Topic:** {TOPIC}

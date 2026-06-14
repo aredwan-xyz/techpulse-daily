@@ -75,7 +75,7 @@ def generate_digest(stories: list[dict]) -> str:
 def write_file(digest: str, stories: list[dict]):
     content = f"""# 📰 Tech News Digest — {DAY_NAME}
 
-> *Curated daily by [DevPulse](https://github.com/aredwan-xyz/devpulse-daily) · Powered by AI*
+> *Curated daily by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily) · Powered by AI*
 
 ---
 

@@ -25,7 +25,7 @@ def fetch_trending_repos(language: str = "", since: str = "daily") -> list[dict]
     """
     try:
         url = f"https://gh-trending-api.herokuapp.com/repositories?language={language}&since={since}"
-        req = urllib.request.Request(url, headers={"User-Agent": "DevPulse-Bot/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "TechPulse-Bot/1.0"})
         with urllib.request.urlopen(req, timeout=10) as r:
             repos = json.loads(r.read())[:10]
             return [
@@ -51,7 +51,7 @@ def fetch_trending_repos(language: str = "", since: str = "daily") -> list[dict]
     req = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "DevPulse-Bot/1.0",
+            "User-Agent": "TechPulse-Bot/1.0",
             "Accept": "application/vnd.github.v3+json",
         }
     )
@@ -106,7 +106,7 @@ def write_file(repos: list[dict], insights: str):
 
     content = f"""# 🔥 GitHub Trending — {DAY_NAME}
 
-> *Daily snapshot by [DevPulse](https://github.com/aredwan-xyz/devpulse-daily)*
+> *Daily snapshot by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*
 
 ## 🧠 Analyst Take
 

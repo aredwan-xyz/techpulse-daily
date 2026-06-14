@@ -76,8 +76,8 @@ def build_daily_archive():
     published_count = sum(1 for s in sections if "Not yet published" not in s and "Could not read" not in s)
 
     archive_content = (
-        f"# 🗓️ DevPulse Daily Archive — {DAY_NAME}\n\n"
-        f"> *Complete daily digest · [DevPulse](https://github.com/aredwan-xyz/devpulse-daily)*\n\n"
+        f"# 🗓️ TechPulse Daily Digest Archive — {DAY_NAME}\n\n"
+        f"> *Complete daily digest · [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*\n\n"
         f"**Date:** {DATE}\n"
         f"**Feeds:** {published_count}/9 published\n\n"
         f"---\n\n"
@@ -163,7 +163,7 @@ def update_index():
 
     archive_table, _ = _build_archive_table()
 
-    index_content = f"""# 🗂️ DevPulse Daily — Master Index
+    index_content = f"""# 🗂️ TechPulse Daily Digest — Master Index
 
 > *Auto-updated daily · [Back to README](README.md)*
 
@@ -231,7 +231,7 @@ def update_stats():
 
     days_active = _get_days_active()
 
-    stats_content = f"""# 📈 DevPulse Daily — Stats
+    stats_content = f"""# 📈 TechPulse Daily Digest — Stats
 
 > *Auto-updated with every daily index run*
 

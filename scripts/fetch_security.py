@@ -44,7 +44,7 @@ def fetch_recent_cves(limit: int = 10) -> tuple[list[dict], bool]:
         f"&cvssV3Severity=HIGH&resultsPerPage={limit}"
     )
 
-    req = urllib.request.Request(url, headers={"User-Agent": "DevPulse-Bot/1.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "TechPulse-Bot/1.0"})
 
     try:
         with urllib.request.urlopen(req, timeout=20) as r:
@@ -133,7 +133,7 @@ def write_file(cves: list[dict], bulletin: str, api_available: bool):
 
     content = f"""# 🔐 Security Pulse — {DAY_NAME}
 
-> *Daily security bulletin by [DevPulse](https://github.com/aredwan-xyz/devpulse-daily)*
+> *Daily security bulletin by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*
 > *Data source: [NIST NVD](https://nvd.nist.gov/) · Filtered to HIGH/CRITICAL severity*
 
 ---

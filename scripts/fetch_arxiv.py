@@ -31,7 +31,7 @@ def fetch_arxiv_papers(category: str, max_results: int = 5) -> list[dict]:
         f"search_query={query}&sortBy=submittedDate&sortOrder=descending&max_results={max_results}"
     )
 
-    req = urllib.request.Request(url, headers={"User-Agent": "DevPulse-Bot/1.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "TechPulse-Bot/1.0"})
     with urllib.request.urlopen(req, timeout=15) as r:
         xml_data = r.read()
 
@@ -109,7 +109,7 @@ def write_file(paper: dict, explanation: str):
 
     content = f"""# 🤖 AI Research — {DAY_NAME}
 
-> *Daily paper summary by [DevPulse](https://github.com/aredwan-xyz/devpulse-daily) · Category: `{CATEGORY}`*
+> *Daily paper summary by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily) · Category: `{CATEGORY}`*
 
 ---
 

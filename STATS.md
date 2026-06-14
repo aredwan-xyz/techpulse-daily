@@ -1,4 +1,4 @@
-# 📈 DevPulse Daily — Stats
+# 📈 TechPulse Daily Digest — Stats
 
 > *Auto-updated with every daily index run*
 

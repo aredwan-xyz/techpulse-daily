@@ -24,7 +24,7 @@ def fetch_hn_hiring_snippet() -> str:
     """Try to get a snippet from HN 'Who is Hiring' thread."""
     url = "https://hn.algolia.com/api/v1/search?query=Ask+HN+Who+is+Hiring&tags=story&hitsPerPage=3"
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "DevPulse-Bot/1.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "TechPulse-Bot/1.0"})
         with urllib.request.urlopen(req, timeout=10) as r:
             data = json.loads(r.read())
         hits = data.get("hits", [])
@@ -104,7 +104,7 @@ def generate_learning_pick() -> str:
 def write_file(market_pulse: str, learning_pick: str):
     content = f"""# 📊 Market Pulse — {DAY_NAME}
 
-> *Daily market intelligence by [DevPulse](https://github.com/aredwan-xyz/devpulse-daily)*
+> *Daily market intelligence by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*
 
 ---
 

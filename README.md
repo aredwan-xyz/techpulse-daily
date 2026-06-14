@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,40:0f1b2d,80:0d2137,100:0d1117&height=200&section=header&text=DevPulse%20Daily&fontSize=62&fontColor=38bdf8&animation=fadeIn&fontAlignY=38&desc=🤖%20AI-powered%20daily%20intelligence%20feed%20for%20developers&descSize=18&descColor=8b949e&descAlignY=58" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,40:0f1b2d,80:0d2137,100:0d1117&height=200&section=header&text=TechPulse%20Daily%20Digest&fontSize=52&fontColor=38bdf8&animation=fadeIn&fontAlignY=38&desc=🤖%20AI-powered%20daily%20intelligence%20feed%20for%20developers&descSize=18&descColor=8b949e&descAlignY=58" />
 
 [![Stars](https://img.shields.io/github/stars/aredwan-xyz/devpulse-daily?style=for-the-badge&color=38bdf8&logo=github)](https://github.com/aredwan-xyz/devpulse-daily/stargazers)
 [![Daily Commits](https://img.shields.io/badge/commits-10%2Fday-brightgreen?style=for-the-badge&logo=git&logoColor=white)](#)
@@ -16,9 +16,9 @@
 
 ---
 
-## 🧠 What Is DevPulse Daily?
+## 🧠 What Is TechPulse Daily Digest?
 
-DevPulse is a **self-updating knowledge feed** powered by AI and GitHub Actions.
+TechPulse Daily Digest is a **self-updating knowledge feed** powered by AI and GitHub Actions.
 
 Every day at 6 AM UTC, 10 automated jobs run — each one fetching real data, generating AI-curated summaries, and committing a new piece of content to this repo. The result: a growing, searchable archive of everything that matters in AI and software development.
 
@@ -168,7 +168,7 @@ Fork this repo, then configure secrets in **Settings → Secrets and variables �
 
 > **No extra setup for GitHub Models.** The workflow automatically uses your repo's built-in `GITHUB_TOKEN` as a final fallback — no secret needed.
 
-Then go to **Actions → 🤖 DevPulse Daily Feed → Run workflow** to trigger the first run.
+Then go to **Actions → 🤖 TechPulse Daily Digest Feed → Run workflow** to trigger the first run.
 
 ---
 

@@ -1,4 +1,4 @@
-# 🗂️ DevPulse Daily — Master Index
+# 🗂️ TechPulse Daily Digest — Master Index
 
 > *Auto-updated daily · [Back to README](README.md)*
 

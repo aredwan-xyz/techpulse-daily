@@ -94,7 +94,7 @@ def write_file(tool: dict, spotlight: str):
 
     content = f"""# {tool['emoji']} Tool Spotlight — {DAY_NAME}
 
-> *Daily tool discovery by [DevPulse](https://github.com/aredwan-xyz/devpulse-daily)*
+> *Daily tool discovery by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*
 
 ---
 
