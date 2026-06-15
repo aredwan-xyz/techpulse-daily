@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 278" width="100%">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#0d1117"/>
+    <stop offset="100%" stop-color="#0d2137"/>
+  </linearGradient>
+  <style>
+    .t  { font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace; }
+    .cn { fill:#8b949e; font-size:9px; }
+    .ca { fill:#e6edf3; font-size:9px; font-weight:bold; }
+    .ct { fill:#484f58; font-size:8px; }
+    .cta{ fill:#8b949e; font-size:8px; }
+
+    /* Sequential card activation — 10s cycle, each card on for 1s */
+    @keyframes pulse {
+      0%,100%{ opacity:0 }
+      1%      { opacity:1 }
+      9%      { opacity:1 }
+      10%     { opacity:0 }
+    }
+    .a0{ animation:pulse 10s  0s linear infinite }
+    .a1{ animation:pulse 10s -9s linear infinite }
+    .a2{ animation:pulse 10s -8s linear infinite }
+    .a3{ animation:pulse 10s -7s linear infinite }
+    .a4{ animation:pulse 10s -6s linear infinite }
+    .a5{ animation:pulse 10s -5s linear infinite }
+    .a6{ animation:pulse 10s -4s linear infinite }
+    .a7{ animation:pulse 10s -3s linear infinite }
+    .a8{ animation:pulse 10s -2s linear infinite }
+    .a9{ animation:pulse 10s -1s linear infinite }
+
+    /* Progress bar sweeps across in 10s */
+    @keyframes prog { from{width:0} to{width:798px} }
+    .pb{ animation:prog 10s linear infinite }
+
+    /* Loop label blink */
+    @keyframes bl { 0%,100%{opacity:.45} 50%{opacity:1} }
+    .bl{ animation:bl 2s ease-in-out infinite }
+
+    /* Dot ring pulse */
+    @keyframes ring { 0%,100%{opacity:.35;r:8} 50%{opacity:.1;r:13} }
+    .ring{ animation:ring 1s ease-out infinite }
+  </style>
+</defs>
+
+<!-- Background -->
+<rect width="840" height="278" fill="url(#bg)" rx="10"/>
+
+<!-- Header -->
+<text x="420" y="27" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="bold" class="t">⚙️  GitHub Actions · Daily Automation Loop</text>
+<text x="420" y="43" text-anchor="middle" fill="#6e7681" font-size="9" class="t">10 scheduled jobs · auto-commits content every day · 06:00 – 10:15 UTC</text>
+
+<!-- ══════════════════ ROW 1 ══════════════════ -->
+
+<!-- CARD 0 · Tech News · 06:00 -->
+<rect x="21"  y="54" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="96"  y="79" text-anchor="middle" font-size="17" font-family="sans-serif">📰</text>
+<text x="96"  y="95" text-anchor="middle" class="t cn">Tech News</text>
+<text x="96"  y="110" text-anchor="middle" class="t ct">06:00 UTC</text>
+<g class="a0">
+  <rect x="21"  y="54" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="96"  y="79" text-anchor="middle" font-size="17" font-family="sans-serif">📰</text>
+  <text x="96"  y="95" text-anchor="middle" class="t ca">Tech News</text>
+  <text x="96"  y="110" text-anchor="middle" class="t cta">06:00 UTC</text>
+  <circle cx="161" cy="64" r="4" fill="#3fb950"/>
+  <circle cx="161" cy="64" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- arrow → -->
+<text x="175" y="91" text-anchor="middle" fill="#30363d" font-size="11" class="t">›</text>
+
+<!-- CARD 1 · Trending · 06:15 -->
+<rect x="183" y="54" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="258" y="79" text-anchor="middle" font-size="17" font-family="sans-serif">🔥</text>
+<text x="258" y="95" text-anchor="middle" class="t cn">Trending</text>
+<text x="258" y="110" text-anchor="middle" class="t ct">06:15 UTC</text>
+<g class="a1">
+  <rect x="183" y="54" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="258" y="79" text-anchor="middle" font-size="17" font-family="sans-serif">🔥</text>
+  <text x="258" y="95" text-anchor="middle" class="t ca">Trending</text>
+  <text x="258" y="110" text-anchor="middle" class="t cta">06:15 UTC</text>
+  <circle cx="323" cy="64" r="4" fill="#3fb950"/>
+  <circle cx="323" cy="64" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- arrow → -->
+<text x="337" y="91" text-anchor="middle" fill="#30363d" font-size="11" class="t">›</text>
+
+<!-- CARD 2 · AI Research · 07:00 -->
+<rect x="345" y="54" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="420" y="79" text-anchor="middle" font-size="17" font-family="sans-serif">🤖</text>
+<text x="420" y="95" text-anchor="middle" class="t cn">AI Research</text>
+<text x="420" y="110" text-anchor="middle" class="t ct">07:00 UTC</text>
+<g class="a2">
+  <rect x="345" y="54" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="420" y="79" text-anchor="middle" font-size="17" font-family="sans-serif">🤖</text>
+  <text x="420" y="95" text-anchor="middle" class="t ca">AI Research</text>
+  <text x="420" y="110" text-anchor="middle" class="t cta">07:00 UTC</text>
+  <circle cx="485" cy="64" r="4" fill="#3fb950"/>
+  <circle cx="485" cy="64" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- arrow → -->
+<text x="499" y="91" text-anchor="middle" fill="#30363d" font-size="11" class="t">›</text>
+
+<!-- CARD 3 · Challenge · 07:15 -->
+<rect x="507" y="54" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="582" y="79" text-anchor="middle" font-size="17" font-family="sans-serif">💡</text>
+<text x="582" y="95" text-anchor="middle" class="t cn">Challenge</text>
+<text x="582" y="110" text-anchor="middle" class="t ct">07:15 UTC</text>
+<g class="a3">
+  <rect x="507" y="54" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="582" y="79" text-anchor="middle" font-size="17" font-family="sans-serif">💡</text>
+  <text x="582" y="95" text-anchor="middle" class="t ca">Challenge</text>
+  <text x="582" y="110" text-anchor="middle" class="t cta">07:15 UTC</text>
+  <circle cx="647" cy="64" r="4" fill="#3fb950"/>
+  <circle cx="647" cy="64" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- arrow → -->
+<text x="661" y="91" text-anchor="middle" fill="#30363d" font-size="11" class="t">›</text>
+
+<!-- CARD 4 · Tool Spotlight · 08:00 -->
+<rect x="669" y="54" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="744" y="79" text-anchor="middle" font-size="17" font-family="sans-serif">🛠️</text>
+<text x="744" y="95" text-anchor="middle" class="t cn">Tool Spotlight</text>
+<text x="744" y="110" text-anchor="middle" class="t ct">08:00 UTC</text>
+<g class="a4">
+  <rect x="669" y="54" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="744" y="79" text-anchor="middle" font-size="17" font-family="sans-serif">🛠️</text>
+  <text x="744" y="95" text-anchor="middle" class="t ca">Tool Spotlight</text>
+  <text x="744" y="110" text-anchor="middle" class="t cta">08:00 UTC</text>
+  <circle cx="809" cy="64" r="4" fill="#3fb950"/>
+  <circle cx="809" cy="64" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- Row wrap connector: right side curves from row1 to row2 -->
+<path d="M 819,87 C 833,87 833,153 819,153" fill="none" stroke="#21262d" stroke-width="1" stroke-dasharray="4,3"/>
+
+<!-- ══════════════════ ROW 2 ══════════════════ -->
+
+<!-- CARD 5 · Prompt · 08:15 -->
+<rect x="21"  y="138" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="96"  y="163" text-anchor="middle" font-size="17" font-family="sans-serif">🎯</text>
+<text x="96"  y="179" text-anchor="middle" class="t cn">Prompt</text>
+<text x="96"  y="194" text-anchor="middle" class="t ct">08:15 UTC</text>
+<g class="a5">
+  <rect x="21"  y="138" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="96"  y="163" text-anchor="middle" font-size="17" font-family="sans-serif">🎯</text>
+  <text x="96"  y="179" text-anchor="middle" class="t ca">Prompt</text>
+  <text x="96"  y="194" text-anchor="middle" class="t cta">08:15 UTC</text>
+  <circle cx="161" cy="148" r="4" fill="#3fb950"/>
+  <circle cx="161" cy="148" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- arrow → -->
+<text x="175" y="175" text-anchor="middle" fill="#30363d" font-size="11" class="t">›</text>
+
+<!-- CARD 6 · Security · 09:00 -->
+<rect x="183" y="138" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="258" y="163" text-anchor="middle" font-size="17" font-family="sans-serif">🔐</text>
+<text x="258" y="179" text-anchor="middle" class="t cn">Security</text>
+<text x="258" y="194" text-anchor="middle" class="t ct">09:00 UTC</text>
+<g class="a6">
+  <rect x="183" y="138" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="258" y="163" text-anchor="middle" font-size="17" font-family="sans-serif">🔐</text>
+  <text x="258" y="179" text-anchor="middle" class="t ca">Security</text>
+  <text x="258" y="194" text-anchor="middle" class="t cta">09:00 UTC</text>
+  <circle cx="323" cy="148" r="4" fill="#3fb950"/>
+  <circle cx="323" cy="148" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- arrow → -->
+<text x="337" y="175" text-anchor="middle" fill="#30363d" font-size="11" class="t">›</text>
+
+<!-- CARD 7 · Market Pulse · 09:15 -->
+<rect x="345" y="138" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="420" y="163" text-anchor="middle" font-size="17" font-family="sans-serif">📊</text>
+<text x="420" y="179" text-anchor="middle" class="t cn">Market Pulse</text>
+<text x="420" y="194" text-anchor="middle" class="t ct">09:15 UTC</text>
+<g class="a7">
+  <rect x="345" y="138" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="420" y="163" text-anchor="middle" font-size="17" font-family="sans-serif">📊</text>
+  <text x="420" y="179" text-anchor="middle" class="t ca">Market Pulse</text>
+  <text x="420" y="194" text-anchor="middle" class="t cta">09:15 UTC</text>
+  <circle cx="485" cy="148" r="4" fill="#3fb950"/>
+  <circle cx="485" cy="148" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- arrow → -->
+<text x="499" y="175" text-anchor="middle" fill="#30363d" font-size="11" class="t">›</text>
+
+<!-- CARD 8 · Learning Pick · 10:00 -->
+<rect x="507" y="138" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="582" y="163" text-anchor="middle" font-size="17" font-family="sans-serif">📚</text>
+<text x="582" y="179" text-anchor="middle" class="t cn">Learning Pick</text>
+<text x="582" y="194" text-anchor="middle" class="t ct">10:00 UTC</text>
+<g class="a8">
+  <rect x="507" y="138" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="582" y="163" text-anchor="middle" font-size="17" font-family="sans-serif">📚</text>
+  <text x="582" y="179" text-anchor="middle" class="t ca">Learning Pick</text>
+  <text x="582" y="194" text-anchor="middle" class="t cta">10:00 UTC</text>
+  <circle cx="647" cy="148" r="4" fill="#3fb950"/>
+  <circle cx="647" cy="148" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- arrow → -->
+<text x="661" y="175" text-anchor="middle" fill="#30363d" font-size="11" class="t">›</text>
+
+<!-- CARD 9 · Daily Index · 10:15 -->
+<rect x="669" y="138" width="150" height="66" rx="6" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<text x="744" y="163" text-anchor="middle" font-size="17" font-family="sans-serif">🗓️</text>
+<text x="744" y="179" text-anchor="middle" class="t cn">Daily Index</text>
+<text x="744" y="194" text-anchor="middle" class="t ct">10:15 UTC</text>
+<g class="a9">
+  <rect x="669" y="138" width="150" height="66" rx="6" fill="#041622" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="744" y="163" text-anchor="middle" font-size="17" font-family="sans-serif">🗓️</text>
+  <text x="744" y="179" text-anchor="middle" class="t ca">Daily Index</text>
+  <text x="744" y="194" text-anchor="middle" class="t cta">10:15 UTC</text>
+  <circle cx="809" cy="148" r="4" fill="#3fb950"/>
+  <circle cx="809" cy="148" r="8" fill="#3fb950" class="ring"/>
+</g>
+
+<!-- Loop-back connector: right side of row2 back toward start -->
+<path d="M 819,171 C 833,171 833,204 21,220" fill="none" stroke="#21262d" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+
+<!-- ══════════════════ PROGRESS ══════════════════ -->
+<text x="21"  y="218" fill="#484f58" font-size="7.5" class="t">DAILY PROGRESS</text>
+<rect x="21"  y="222" width="798" height="5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+<rect x="21"  y="222" width="0"   height="5" rx="2.5" fill="#38bdf8" class="pb"/>
+
+<!-- Time tick labels -->
+<text x="21"  y="236" fill="#484f58" font-size="7.5" class="t">06:00</text>
+<text x="227" y="236" fill="#484f58" font-size="7.5" class="t" text-anchor="middle">06:15</text>
+<text x="387" y="236" fill="#484f58" font-size="7.5" class="t" text-anchor="middle">07:15</text>
+<text x="546" y="236" fill="#484f58" font-size="7.5" class="t" text-anchor="middle">08:15</text>
+<text x="706" y="236" fill="#484f58" font-size="7.5" class="t" text-anchor="middle">09:15</text>
+<text x="819" y="236" fill="#484f58" font-size="7.5" class="t" text-anchor="end">10:15</text>
+
+<!-- Loop indicator -->
+<text x="420" y="258" text-anchor="middle" fill="#38bdf8" font-size="10" class="t bl">↻  repeats every 24h · powered by GitHub Actions + Gemini AI</text>
+</svg>

@@ -2,12 +2,12 @@
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,40:0f1b2d,80:0d2137,100:0d1117&height=200&section=header&text=TechPulse%20Daily%20Digest&fontSize=52&fontColor=38bdf8&animation=fadeIn&fontAlignY=38&desc=🤖%20AI-powered%20daily%20intelligence%20feed%20for%20developers&descSize=18&descColor=8b949e&descAlignY=58" />
 
-[![Stars](https://img.shields.io/github/stars/aredwan-xyz/devpulse-daily?style=for-the-badge&color=38bdf8&logo=github)](https://github.com/aredwan-xyz/devpulse-daily/stargazers)
+[![Stars](https://img.shields.io/github/stars/aredwan-xyz/techpulse-daily?style=for-the-badge&color=38bdf8&logo=github)](https://github.com/aredwan-xyz/techpulse-daily/stargazers)
 [![Daily Commits](https://img.shields.io/badge/commits-10%2Fday-brightgreen?style=for-the-badge&logo=git&logoColor=white)](#)
 [![Powered by Gemini](https://img.shields.io/badge/Powered%20by-Gemini%20AI-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=2500&pause=800&color=38BDF8&center=true&vCenter=true&width=700&lines=📰+AI+%26+tech+news+summarized+daily;🔥+GitHub+trending+repos+archived+forever;🤖+AI+research+papers+explained+in+plain+English;💡+New+coding+challenge+every+single+day;🎯+Battle-tested+LLM+prompts%2C+fresh+daily)](https://github.com/aredwan-xyz/devpulse-daily)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=2500&pause=800&color=38BDF8&center=true&vCenter=true&width=700&lines=📰+AI+%26+tech+news+summarized+daily;🔥+GitHub+trending+repos+archived+forever;🤖+AI+research+papers+explained+in+plain+English;💡+New+coding+challenge+every+single+day;🎯+Battle-tested+LLM+prompts%2C+fresh+daily)](https://github.com/aredwan-xyz/techpulse-daily)
 
 **10 meaningful commits. Every. Single. Day.**  
 *Star this repo to stay on the pulse of AI & dev — automatically.*
@@ -47,7 +47,7 @@ Every day at 6 AM UTC, 10 automated jobs run — each one fetching real data, ge
 ## 📁 Repository Structure
 
 ```
-devpulse-daily/
+techpulse-daily/
 ├── .github/
 │   └── workflows/
 │       └── daily-pulse.yml      ← The engine. Runs 10x/day.
@@ -106,6 +106,10 @@ devpulse-daily/
 ---
 
 ## ⚙️ How It Works
+
+<div align="center">
+<img src="assets/automation-loop.svg" alt="GitHub Actions Daily Automation Loop" width="100%"/>
+</div>
 
 ```
 ┌─────────────────────────────────────────────────────────┐
