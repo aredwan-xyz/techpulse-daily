@@ -14,6 +14,10 @@
 
 </div>
 
+<div align="center">
+<img src="assets/automation-loop.svg" alt="GitHub Actions Daily Automation Loop" width="100%"/>
+</div>
+
 ---
 
 ## 🧠 What Is TechPulse Daily Digest?
@@ -106,10 +110,6 @@ techpulse-daily/
 ---
 
 ## ⚙️ How It Works
-
-<div align="center">
-<img src="assets/automation-loop.svg" alt="GitHub Actions Daily Automation Loop" width="100%"/>
-</div>
 
 ```
 ┌─────────────────────────────────────────────────────────┐
