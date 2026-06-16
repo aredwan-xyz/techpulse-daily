@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,40:0f1b2d,80:0d2137,100:0d1117&height=200&section=header&text=TechPulse%20Daily%20Digest&fontSize=52&fontColor=38bdf8&animation=fadeIn&fontAlignY=38&desc=🤖%20AI-powered%20daily%20intelligence%20feed%20for%20developers&descSize=18&descColor=8b949e&descAlignY=58" />
+<img width="100%" src="assets/banner.svg" alt="TechPulse Daily Digest"/>
 
 [![Stars](https://img.shields.io/github/stars/aredwan-xyz/techpulse-daily?style=for-the-badge&color=38bdf8&logo=github)](https://github.com/aredwan-xyz/techpulse-daily/stargazers)
 [![Daily Commits](https://img.shields.io/badge/commits-10%2Fday-brightgreen?style=for-the-badge&logo=git&logoColor=white)](#)
