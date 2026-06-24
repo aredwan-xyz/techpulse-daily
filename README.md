@@ -94,19 +94,19 @@ techpulse-daily/
 ## 🔥 Today's Digest
 
 <!-- AUTO-UPDATED DAILY — DO NOT EDIT MANUALLY -->
-> *Last updated: 2026-06-23 · [Full archive](archive/)*
+> *Last updated: 2026-06-24 · [Full archive](archive/)*
 
 | Feed | Today's Issue |
 |---|---|
-| 📰 Tech News | [Read →](feeds/news/2026-06-23.md) |
-| 🔥 GitHub Trending | [Read →](feeds/trending/2026-06-23.md) |
-| 🤖 AI Research | [Read →](feeds/research/2026-06-23.md) |
-| 💡 Coding Challenge | [Read →](feeds/challenges/2026-06-23.md) |
-| 🛠️ Tool Spotlight | [Read →](feeds/tools/2026-06-23.md) |
-| 🎯 Prompt of the Day | [Read →](feeds/prompts/2026-06-23.md) |
-| 🔐 Security Pulse | [Read →](feeds/security/2026-06-23.md) |
-| 📊 Market Pulse | [Read →](feeds/market/2026-06-23.md) |
-| 📚 Learning Pick | [Read →](feeds/learning/2026-06-23.md) |
+| 📰 Tech News | [Read →](feeds/news/2026-06-24.md) |
+| 🔥 GitHub Trending | [Read →](feeds/trending/2026-06-24.md) |
+| 🤖 AI Research | [Read →](feeds/research/2026-06-24.md) |
+| 💡 Coding Challenge | [Read →](feeds/challenges/2026-06-24.md) |
+| 🛠️ Tool Spotlight | [Read →](feeds/tools/2026-06-24.md) |
+| 🎯 Prompt of the Day | [Read →](feeds/prompts/2026-06-24.md) |
+| 🔐 Security Pulse | [Read →](feeds/security/2026-06-24.md) |
+| 📊 Market Pulse | [Read →](feeds/market/2026-06-24.md) |
+| 📚 Learning Pick | [Read →](feeds/learning/2026-06-24.md) |
 ---
 
 ## ⚙️ How It Works
