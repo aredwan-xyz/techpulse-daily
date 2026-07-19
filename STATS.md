@@ -2,7 +2,7 @@
 
 > *Auto-updated with every daily index run*
 
-**Last updated:** 2026-07-18
+**Last updated:** 2026-07-19
 
 ---
 
@@ -10,18 +10,18 @@
 
 | Metric | Count |
 |---|---|
-| 📅 Days active | 80 |
-| 📝 Total commits (content) | ~7780 |
-| 📰 News digests | 79 |
-| 🔥 Trending snapshots | 79 |
-| 🤖 Research papers summarized | 69 |
-| 💡 Coding challenges | 79 |
-| 🛠️ Tool spotlights | 79 |
-| 🎯 Prompts published | 79 |
-| 🔐 Security bulletins | 79 |
-| 📊 Market pulses | 79 |
-| 📚 Learning picks | 78 |
-| 🗓️ Daily archives | 78 |
+| 📅 Days active | 81 |
+| 📝 Total commits (content) | ~7880 |
+| 📰 News digests | 80 |
+| 🔥 Trending snapshots | 80 |
+| 🤖 Research papers summarized | 70 |
+| 💡 Coding challenges | 80 |
+| 🛠️ Tool spotlights | 80 |
+| 🎯 Prompts published | 80 |
+| 🔐 Security bulletins | 80 |
+| 📊 Market pulses | 80 |
+| 📚 Learning picks | 79 |
+| 🗓️ Daily archives | 79 |
 
 ---
 
