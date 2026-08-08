@@ -2,7 +2,7 @@
 
 > *Auto-updated with every daily index run*
 
-**Last updated:** 2026-08-07
+**Last updated:** 2026-08-08
 
 ---
 
@@ -10,8 +10,8 @@
 
 | Metric | Count |
 |---|---|
-| 📅 Days active | 100 |
-| 📝 Total commits (content) | ~9060 |
+| 📅 Days active | 101 |
+| 📝 Total commits (content) | ~9070 |
 | 📰 News digests | 91 |
 | 🔥 Trending snapshots | 91 |
 | 🤖 Research papers summarized | 81 |
@@ -21,7 +21,7 @@
 | 🔐 Security bulletins | 91 |
 | 📊 Market pulses | 91 |
 | 📚 Learning picks | 90 |
-| 🗓️ Daily archives | 98 |
+| 🗓️ Daily archives | 99 |
 
 ---
 
