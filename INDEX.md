@@ -2,7 +2,7 @@
 
 > *Auto-updated daily · [Back to README](README.md)*
 
-**Last updated:** 2026-08-28
+**Last updated:** 2026-08-29
 
 ---
 
@@ -10,6 +10,7 @@
 
 | Date | Day | Feeds |
 |---|---|---|
+| [2026-08-29](archive/2026/08/2026-08-29.md) | Saturday, Aug 29 | [📰](feeds/news/2026-08-29.md) [🔥](feeds/trending/2026-08-29.md) [🤖](feeds/research/2026-08-29.md) [💡](feeds/challenges/2026-08-29.md) [🛠️](feeds/tools/2026-08-29.md) [🎯](feeds/prompts/2026-08-29.md) [🔐](feeds/security/2026-08-29.md) [📊](feeds/market/2026-08-29.md) [📚](feeds/learning/2026-08-29.md) |
 | [2026-08-28](archive/2026/08/2026-08-28.md) | Friday, Aug 28 | [📰](feeds/news/2026-08-28.md) [🔥](feeds/trending/2026-08-28.md) [🤖](feeds/research/2026-08-28.md) [💡](feeds/challenges/2026-08-28.md) [🛠️](feeds/tools/2026-08-28.md) [🎯](feeds/prompts/2026-08-28.md) [🔐](feeds/security/2026-08-28.md) [📊](feeds/market/2026-08-28.md) [📚](feeds/learning/2026-08-28.md) |
 | [2026-08-27](archive/2026/08/2026-08-27.md) | Thursday, Aug 27 | [📰](feeds/news/2026-08-27.md) [🔥](feeds/trending/2026-08-27.md) [🤖](feeds/research/2026-08-27.md) [💡](feeds/challenges/2026-08-27.md) [🛠️](feeds/tools/2026-08-27.md) [🎯](feeds/prompts/2026-08-27.md) [🔐](feeds/security/2026-08-27.md) [📊](feeds/market/2026-08-27.md) [📚](feeds/learning/2026-08-27.md) |
 | [2026-08-26](archive/2026/08/2026-08-26.md) | Wednesday, Aug 26 | [📰](feeds/news/2026-08-26.md) [🔥](feeds/trending/2026-08-26.md) [🤖](feeds/research/2026-08-26.md) [💡](feeds/challenges/2026-08-26.md) [🛠️](feeds/tools/2026-08-26.md) [🎯](feeds/prompts/2026-08-26.md) [🔐](feeds/security/2026-08-26.md) [📊](feeds/market/2026-08-26.md) [📚](feeds/learning/2026-08-26.md) |
@@ -39,7 +40,6 @@
 | [2026-08-02](archive/2026/08/2026-08-02.md) | Sunday, Aug 02 | [📰](feeds/news/2026-08-02.md) [🔥](feeds/trending/2026-08-02.md) [🤖](feeds/research/2026-08-02.md) [💡](feeds/challenges/2026-08-02.md) [🛠️](feeds/tools/2026-08-02.md) [🎯](feeds/prompts/2026-08-02.md) [🔐](feeds/security/2026-08-02.md) [📊](feeds/market/2026-08-02.md) [📚](feeds/learning/2026-08-02.md) |
 | [2026-08-01](archive/2026/08/2026-08-01.md) | Saturday, Aug 01 | [📰](feeds/news/2026-08-01.md) [🔥](feeds/trending/2026-08-01.md) [🤖](feeds/research/2026-08-01.md) [💡](feeds/challenges/2026-08-01.md) [🛠️](feeds/tools/2026-08-01.md) [🎯](feeds/prompts/2026-08-01.md) [🔐](feeds/security/2026-08-01.md) [📊](feeds/market/2026-08-01.md) [📚](feeds/learning/2026-08-01.md) |
 | [2026-07-31](archive/2026/07/2026-07-31.md) | Friday, Jul 31 | [📰](feeds/news/2026-07-31.md) [🔥](feeds/trending/2026-07-31.md) [🤖](feeds/research/2026-07-31.md) [💡](feeds/challenges/2026-07-31.md) [🛠️](feeds/tools/2026-07-31.md) [🎯](feeds/prompts/2026-07-31.md) [🔐](feeds/security/2026-07-31.md) [📊](feeds/market/2026-07-31.md) [📚](feeds/learning/2026-07-31.md) |
-| [2026-07-30](archive/2026/07/2026-07-30.md) | Thursday, Jul 30 | [📰](feeds/news/2026-07-30.md) [🔥](feeds/trending/2026-07-30.md) [🤖](feeds/research/2026-07-30.md) [💡](feeds/challenges/2026-07-30.md) [🛠️](feeds/tools/2026-07-30.md) [🎯](feeds/prompts/2026-07-30.md) [🔐](feeds/security/2026-07-30.md) [📊](feeds/market/2026-07-30.md) [📚](feeds/learning/2026-07-30.md) |
 
 ---
 
@@ -47,15 +47,15 @@
 
 | Feed | Latest | Archive |
 |---|---|---|
-| 📰 Tech News | [Today](feeds/news/2026-08-28.md) | [All Issues](feeds/news/) |
-| 🔥 GitHub Trending | [Today](feeds/trending/2026-08-28.md) | [All Issues](feeds/trending/) |
-| 🤖 AI Research | [Today](feeds/research/2026-08-28.md) | [All Issues](feeds/research/) |
-| 💡 Coding Challenges | [Today](feeds/challenges/2026-08-28.md) | [All Issues](feeds/challenges/) |
-| 🛠️ Tool Spotlights | [Today](feeds/tools/2026-08-28.md) | [All Issues](feeds/tools/) |
-| 🎯 Prompts | [Today](feeds/prompts/2026-08-28.md) | [All Issues](feeds/prompts/) |
-| 🔐 Security | [Today](feeds/security/2026-08-28.md) | [All Issues](feeds/security/) |
-| 📊 Market Pulse | [Today](feeds/market/2026-08-28.md) | [All Issues](feeds/market/) |
-| 📚 Learning | [Today](feeds/learning/2026-08-28.md) | [All Issues](feeds/learning/) |
+| 📰 Tech News | [Today](feeds/news/2026-08-29.md) | [All Issues](feeds/news/) |
+| 🔥 GitHub Trending | [Today](feeds/trending/2026-08-29.md) | [All Issues](feeds/trending/) |
+| 🤖 AI Research | [Today](feeds/research/2026-08-29.md) | [All Issues](feeds/research/) |
+| 💡 Coding Challenges | [Today](feeds/challenges/2026-08-29.md) | [All Issues](feeds/challenges/) |
+| 🛠️ Tool Spotlights | [Today](feeds/tools/2026-08-29.md) | [All Issues](feeds/tools/) |
+| 🎯 Prompts | [Today](feeds/prompts/2026-08-29.md) | [All Issues](feeds/prompts/) |
+| 🔐 Security | [Today](feeds/security/2026-08-29.md) | [All Issues](feeds/security/) |
+| 📊 Market Pulse | [Today](feeds/market/2026-08-29.md) | [All Issues](feeds/market/) |
+| 📚 Learning | [Today](feeds/learning/2026-08-29.md) | [All Issues](feeds/learning/) |
 
 ---
 
@@ -67,7 +67,7 @@
 | 2026 | [May](archive/2026/05/) | 30 issues |
 | 2026 | [June](archive/2026/06/) | 30 issues |
 | 2026 | [July](archive/2026/07/) | 30 issues |
-| 2026 | [August](archive/2026/08/) | 28 issues |
+| 2026 | [August](archive/2026/08/) | 29 issues |
 
 ---
 
