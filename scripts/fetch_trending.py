@@ -46,7 +46,7 @@ def fetch_trending_repos(language: str = "", since: str = "daily") -> list[dict]
 
     # Fallback: GitHub Search API — last 30 days of activity
     import datetime
-    cutoff = (datetime.date.today() - datetime.timedelta(days=30)).isoformat()
+    cutoff = (datetime.date.fromisoformat(DATE) - datetime.timedelta(days=30)).isoformat()
     url = f"https://api.github.com/search/repositories?q=created:>{cutoff}&sort=stars&order=desc&per_page=10"
     req = urllib.request.Request(
         url,
@@ -75,6 +75,8 @@ def fetch_trending_repos(language: str = "", since: str = "daily") -> list[dict]
 
 def generate_insights(repos: list[dict]) -> str:
     """Generate insights on today's trending repos."""
+    if not repos:
+        raise ValueError("No repository sources fetched")
     repos_text = "\n".join([
         f"- {r['author']}/{r['name']} ({r['language']}, ⭐{r['stars']:,}): {r['description']}"
         for r in repos
@@ -106,7 +108,7 @@ def write_file(repos: list[dict], insights: str):
 
     content = f"""# 🔥 GitHub Trending — {DAY_NAME}
 
-> *Daily snapshot by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*
+> *Repository discovery snapshot by [TechPulse Daily Digest](https://github.com/aredwan-xyz/techpulse-daily). If the unofficial trending API is unavailable, this samples recent repositories by total stars, not daily trends.*
 
 ## 🧠 Analyst Take
 

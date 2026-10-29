@@ -52,6 +52,8 @@ def fetch_hackernews_top(n: int = 20) -> list[dict]:
 
 def generate_digest(stories: list[dict]) -> str:
     """Generate a curated digest using the configured free AI provider."""
+    if not stories:
+        raise ValueError("No source stories fetched; refusing an unsourced digest")
     stories_text = "\n".join([
         f"- [{s['title']}]({s['url']}) — {s['score']} points, {s['comments']} comments"
         for s in stories
@@ -75,7 +77,7 @@ def generate_digest(stories: list[dict]) -> str:
 def write_file(digest: str, stories: list[dict]):
     content = f"""# 📰 Tech News Digest — {DAY_NAME}
 
-> *Curated daily by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily) · Powered by AI*
+> *Curated daily by [TechPulse Daily Digest](https://github.com/aredwan-xyz/techpulse-daily) · AI-assisted; verify linked sources*
 
 ---
 

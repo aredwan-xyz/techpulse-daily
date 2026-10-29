@@ -81,7 +81,7 @@ def write_file(prompt_data: dict):
 
     content = f"""# 🎯 Prompt of the Day — {DAY_NAME}
 
-> *Daily prompt by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*
+> *Generated prompt template by [TechPulse Daily Digest](https://github.com/aredwan-xyz/techpulse-daily). Example output is illustrative; effectiveness is not independently tested.*
 
 **Category:** {CATEGORY_EMOJI} {CATEGORY_NAME}
 **Prompt #{DAY_NUMBER}**

@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import datetime
 import pathlib
+import os
 
 
 def today():
     """Return (DATE, DAY_NAME, DAY_NUMBER) for today."""
-    d = datetime.date.today()
+    d = datetime.date.fromisoformat(os.environ.get(
+        "TECHPULSE_DATE", datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    ))
     return d.isoformat(), d.strftime("%A, %B %d %Y"), d.timetuple().tm_yday
 
 

@@ -1,205 +1,110 @@
-<div align="center">
+# TechPulse Daily Digest
 
-<img width="100%" src="assets/banner.svg" alt="TechPulse Daily Digest"/>
+AI-assisted developer reading: news, repository snapshots, research, exercises,
+tools, prompts, security notes, hiring-thread notes and learning suggestions.
 
-[![Stars](https://img.shields.io/github/stars/aredwan-xyz/techpulse-daily?style=for-the-badge&color=38bdf8&logo=github)](https://github.com/aredwan-xyz/techpulse-daily/stargazers)
-[![Daily Commits](https://img.shields.io/badge/commits-10%2Fday-brightgreen?style=for-the-badge&logo=git&logoColor=white)](#)
-[![Powered by Gemini](https://img.shields.io/badge/Powered%20by-Gemini%20AI-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+**Status: reliability remediation in progress.** Historical archives can be
+incomplete. A scheduled run or index commit alone does not establish publication.
+The latest successfully validated complete issue is shown below.
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=2500&pause=800&color=38BDF8&center=true&vCenter=true&width=700&lines=📰+AI+%26+tech+news+summarized+daily;🔥+GitHub+trending+repos+archived+forever;🤖+AI+research+papers+explained+in+plain+English;💡+New+coding+challenge+every+single+day;🎯+Battle-tested+LLM+prompts%2C+fresh+daily)](https://github.com/aredwan-xyz/techpulse-daily)
-
-**10 meaningful commits. Every. Single. Day.**  
-*Star this repo to stay on the pulse of AI & dev — automatically.*
-
-</div>
-
-<div align="center">
-<img src="assets/automation-loop.svg" alt="GitHub Actions Daily Automation Loop" width="100%"/>
-</div>
-
----
-
-## 🧠 What Is TechPulse Daily Digest?
-
-TechPulse Daily Digest is a **self-updating knowledge feed** powered by AI and GitHub Actions.
-
-Every day at 6 AM UTC, 10 automated jobs run — each one fetching real data, generating AI-curated summaries, and committing a new piece of content to this repo. The result: a growing, searchable archive of everything that matters in AI and software development.
-
-> **No noise. No paywalls. No newsletters to ignore.**  
-> Just the signal, committed to GitHub where you already live.
-
----
-
-## 📦 What Gets Published Every Day
-
-| # | Feed | What It Contains | Commit Time (UTC) |
-|---|---|---|---|
-| 1 | 📰 **Tech News Digest** | Top 5 AI & dev stories, AI-summarized | 06:00 |
-| 2 | 🔥 **GitHub Trending** | Today's 10 hottest repos with descriptions | 06:15 |
-| 3 | 🤖 **AI Research** | Top arXiv paper explained in plain English | 07:00 |
-| 4 | 💡 **Coding Challenge** | Problem + optimal solution + explanation | 07:15 |
-| 5 | 🛠️ **Tool Spotlight** | One dev tool worth knowing about | 08:00 |
-| 6 | 🎯 **Prompt of the Day** | Battle-tested LLM prompt with example output | 08:15 |
-| 7 | 🔐 **Security Pulse** | Critical CVEs + advisories summarized | 09:00 |
-| 8 | 📊 **Market Pulse** | Trending tech skills & AI job market signal | 09:15 |
-| 9 | 📚 **Learning Pick** | Best tutorial, talk, or article of the day | 10:00 |
-| 10 | 🗓️ **Daily Index** | Master index updated with today's links | 10:15 |
-
----
-
-## 📁 Repository Structure
-
-```
-techpulse-daily/
-├── .github/
-│   └── workflows/
-│       └── daily-pulse.yml      ← The engine. Runs 10x/day.
-│
-├── feeds/                       ← Daily content, organized by type
-│   ├── news/                    ← 📰 Tech news digests
-│   ├── trending/                ← 🔥 GitHub trending snapshots
-│   ├── research/                ← 🤖 AI paper summaries
-│   ├── challenges/              ← 💡 Coding challenges + solutions
-│   ├── tools/                   ← 🛠️ Tool spotlights
-│   ├── prompts/                 ← 🎯 LLM prompts
-│   ├── security/                ← 🔐 Security bulletins
-│   ├── market/                  ← 📊 Market & jobs pulse
-│   └── learning/                ← 📚 Learning picks
-│
-├── archive/                     ← Complete daily digests by date
-│   └── YYYY/MM/YYYY-MM-DD.md   ← Full day's content in one file
-│
-├── scripts/                     ← Python scripts powering the feeds
-│   ├── ai_client.py             ← Multi-provider AI (Gemini → Groq → GitHub Models)
-│   ├── utils.py                 ← Shared helpers (date, dirs, parsing)
-│   ├── fetch_news.py            ← HackerNews + NewsAPI digest
-│   ├── fetch_trending.py        ← GitHub trending repos
-│   ├── fetch_arxiv.py           ← arXiv AI/ML paper summaries
-│   ├── fetch_security.py        ← NVD CVEs + security advisories
-│   ├── fetch_market.py          ← AI job & skills trends
-│   ├── generate_challenge.py    ← Daily coding challenge
-│   ├── generate_prompt.py       ← LLM prompt of the day
-│   ├── generate_tool.py         ← Developer tool spotlight
-│   ├── generate_learning.py     ← Curated learning pick
-│   └── update_index.py          ← Daily archive + INDEX.md + STATS.md
-│
-├── INDEX.md                     ← 🗂️ Auto-updated master index
-├── STATS.md                     ← 📈 Repo stats and milestones
-└── README.md                    ← You are here
-```
-
----
-
-## 🔥 Today's Digest
+## Latest complete digest
 
 <!-- AUTO-UPDATED DAILY — DO NOT EDIT MANUALLY -->
-> *Last updated: 2026-10-28 · [Full archive](archive/)*
+No complete digest has passed validation.
 
-| Feed | Today's Issue |
+| Feed | Latest complete issue |
 |---|---|
-| 📰 Tech News | [Read →](feeds/news/2026-10-28.md) |
-| 🔥 GitHub Trending | [Read →](feeds/trending/2026-10-28.md) |
-| 🤖 AI Research | [Read →](feeds/research/2026-10-28.md) |
-| 💡 Coding Challenge | [Read →](feeds/challenges/2026-10-28.md) |
-| 🛠️ Tool Spotlight | [Read →](feeds/tools/2026-10-28.md) |
-| 🎯 Prompt of the Day | [Read →](feeds/prompts/2026-10-28.md) |
-| 🔐 Security Pulse | [Read →](feeds/security/2026-10-28.md) |
-| 📊 Market Pulse | [Read →](feeds/market/2026-10-28.md) |
-| 📚 Learning Pick | [Read →](feeds/learning/2026-10-28.md) |
----
+| 📰 Tech News Digest | Not available |
+| 🔥 GitHub Repository Snapshot | Not available |
+| 🤖 AI Research | Not available |
+| 💡 Coding Challenge | Not available |
+| 🛠️ Tool Spotlight | Not available |
+| 🎯 Prompt of the Day | Not available |
+| 🔐 Security Pulse | Not available |
+| 📊 Hiring Thread Notes | Not available |
+| 📚 Learning Pick | Not available |
 
-## ⚙️ How It Works
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                  GitHub Actions (Cron)                   │
-│              Runs 10 jobs across the day                 │
-└──────────────┬──────────────────────────────────────────┘
-               │
-     ┌─────────▼──────────┐
-     │   Python Scripts    │
-     │  (fetch + generate) │
-     └─────────┬───────────┘
-               │
-     ┌─────────▼────────────────────────────────────────┐
-     │              AI Provider (auto-fallback)          │
-     │  1. Google Gemini 2.0 Flash  (primary)           │
-     │  2. Google Gemini 2.0 Flash Lite  (fallback)     │
-     │  3. Groq Llama 3.3 70B  (if GROQ_API_KEY set)   │
-     │  4. GitHub Models gpt-4o-mini  (always available) │
-     └─────────┬─────────────────────────────────────────┘
-               │
-     ┌─────────▼──────────┐
-     │   Markdown Files    │
-     │   Committed to Git  │
-     └─────────────────────┘
-```
-
-**Data sources used every day:**
-- GitHub API — trending repos
-- arXiv API — AI/ML research papers
-- HackerNews Firebase API — top tech stories
-- NVD API — security CVEs and advisories
-- NewsAPI — tech news (optional, enhances quality)
-- Algolia HN Search — market and jobs signal
 
 ---
 
-## 📊 Archive Stats
+## Publishing contract
 
-<!-- AUTO-UPDATED -->
-| Metric | Count |
+One daily workflow generates all nine feeds in a temporary directory, validates
+them, builds the archive and navigation, and publishes one commit. If any source,
+provider or validation step fails, the workflow fails and the previous public
+issue stays in place. A completed date is immutable on rerun.
+
+`STATUS.json` is written only with a complete publication. Its `published_date`
+is the last successful issue date, not the last time the scheduler ran. A stale
+date should be investigated in [Actions](https://github.com/aredwan-xyz/techpulse-daily/actions).
+Enable failed-workflow notifications in your GitHub notification settings.
+
+Validation catches missing/empty outputs, placeholders, malformed code fences,
+unsafe markup and missing source URLs. It does **not** prove factual accuracy,
+resource availability, coding-solution correctness or exhaustive CVE coverage.
+Check linked primary sources before acting. Challenges and prompts are generated
+exercises, not benchmarked or “battle-tested” assets. Hiring notes summarize a
+limited HN source, not a comprehensive market or salary survey.
+
+## Run your own
+
+```bash
+git clone https://github.com/aredwan-xyz/techpulse-daily.git
+cd techpulse-daily
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+python -m unittest discover -s tests -v
+```
+
+For GitHub Actions, add `GEMINI_API_KEY` as a repository secret. Optionally add
+`GROQ_API_KEY` for an independent fallback. Store keys in Actions secrets, never
+in code or repository variables. Model IDs belong in variables:
+
+| Variable | Default |
 |---|---|
-| 📅 Days active | 0 |
-| 📝 Total entries | 0 |
-| 🔥 Trending repos archived | 0 |
-| 🤖 Papers summarized | 0 |
-| 💡 Challenges published | 0 |
-| 🎯 Prompts curated | 0 |
+| `GEMINI_MODEL` | `gemini-3.8-flash` |
+| `GROQ_MODEL` | `llama-3.3-70b-versatile` |
 
----
+The default Gemini model is listed as stable in the
+[official model catalog](https://ai.google.dev/gemini-api/docs/models)
+(checked October 28, 2026). Check access, quotas, billing and the
+[deprecation schedule](https://ai.google.dev/gemini-api/docs/deprecations)
+before enabling the schedule. Paid usage and all API limits depend on your
+provider project; no fixed free quota or zero-cost guarantee is assumed.
+GitHub Models is not used.
 
-## 🚀 Deploy Your Own
+The schedule requests a run at 10:17 UTC; GitHub can delay scheduled execution.
+Use **Actions → TechPulse Daily Digest → Run workflow** on `main` to publish
+manually. Pull requests run offline regression tests and cannot publish content.
 
-Fork this repo, then configure secrets in **Settings → Secrets and variables → Actions**:
+Locally, provide the selected provider key in your shell environment and run
+`python scripts/run_daily.py`. This updates local validated publication paths;
+review the changes before committing. It does not load a `.env` automatically.
+`TECHPULSE_DATE=YYYY-MM-DD` freezes the issue date for every subprocess; otherwise
+the runner chooses the UTC date once at startup. Provider calls use a 60-second
+timeout and at most three attempts for transient errors before falling back.
 
-| Secret | Required | Description |
-|---|---|---|
-| `GEMINI_API_KEY` | Recommended | Free at [aistudio.google.com](https://aistudio.google.com/apikey) — 1,500 req/day. Use **"Create API key in new project"** to get free-tier access. |
-| `GROQ_API_KEY` | Optional | Free at [console.groq.com](https://console.groq.com) — 14,400 req/day. Used as fallback if Gemini quota is hit. |
-| `NEWS_API_KEY` | Optional | Free at [newsapi.org](https://newsapi.org) — enhances the news feed quality. |
+## Repository layout
 
-> **No extra setup for GitHub Models.** The workflow automatically uses your repo's built-in `GITHUB_TOKEN` as a final fallback — no secret needed.
+- `scripts/run_daily.py`: staging and publication orchestration
+- `scripts/ai_client.py`: configurable Gemini and optional Groq adapters
+- `scripts/update_index.py`: complete-issue validation and navigation
+- `feeds/`: individual Markdown feeds (legacy entries are preserved)
+- `archive/`: daily bundles; older bundles may be incomplete
+- `INDEX.md`: validated complete issues only
+- `STATUS.json`: last successful publication, once one exists
+- `tests/`: offline failure and publication regression tests
 
-Then go to **Actions → 🤖 TechPulse Daily Digest Feed → Run workflow** to trigger the first run.
+Run `python scripts/update_index.py` to rebuild navigation from existing complete
+issues without generating content or promoting a partial day.
 
----
+## Release verification
 
-## 🌟 Why Star This?
+Before claiming unattended operation: verify a complete generated artifact,
+exercise a provider outage and a source outage, confirm no public update on
+failure, rerun a completed date without duplicate output, then observe seven
+complete scheduled cycles. Those production checks require configured provider
+accounts and are not established by the offline test suite alone.
 
-- 📌 **Bookmark via star** — your GitHub stars are a reading list. Make this one of them.
-- 🔔 **Watch the repo** — get notified when big AI developments drop
-- 🍴 **Fork it** — run your own version in 5 minutes
-- 🤝 **Contribute** — add a new feed category via PR
-
----
-
-## 📬 Maintained By
-
-<div align="center">
-
-**[Abid Redwan](https://github.com/aredwan-xyz)** · Interactive Media Designer & AI Engineer  
-[aredwan.com](http://aredwan.com) · [CodeBeez Technology](https://github.com/aredwan-xyz)
-
-[![Follow](https://img.shields.io/github/followers/aredwan-xyz?style=social)](https://github.com/aredwan-xyz)
-
-</div>
-
----
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d2137,100:0d1117&height=120&section=footer" />
-
-<div align="center">
-  <sub>⚡ Auto-updated daily by Gemini AI · Built by Abid Redwan · Star to subscribe</sub>
-</div>
+Maintained by [Abid Redwan](https://github.com/aredwan-xyz). [MIT License](LICENSE).
