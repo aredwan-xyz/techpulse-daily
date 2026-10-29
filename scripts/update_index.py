@@ -1,333 +1,162 @@
 #!/usr/bin/env python3
-"""
-update_index.py
-Compiles all today's feeds into a single daily archive file,
-updates the master INDEX.md, and updates STATS.md.
-"""
+"""Build navigation only from validated complete issues. No import-time writes."""
 
 import datetime
-import pathlib
-import glob
+import json
+import os
+from pathlib import Path
 import re
+from urllib.parse import urlsplit
 
-DATE = datetime.date.today().isoformat()
-DAY_NAME = datetime.date.today().strftime("%A, %B %d %Y")
-YEAR = datetime.date.today().strftime("%Y")
-MONTH = datetime.date.today().strftime("%m")
-
-ARCHIVE_DIR = pathlib.Path(f"archive/{YEAR}/{MONTH}")
-ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
-ARCHIVE_FILE = ARCHIVE_DIR / f"{DATE}.md"
+from utils import today
 
 FEEDS = {
-    "news":       ("📰", "Tech News Digest", "feeds/news"),
-    "trending":   ("🔥", "GitHub Trending",  "feeds/trending"),
-    "research":   ("🤖", "AI Research",       "feeds/research"),
-    "challenges": ("💡", "Coding Challenge",  "feeds/challenges"),
-    "tools":      ("🛠️",  "Tool Spotlight",    "feeds/tools"),
-    "prompts":    ("🎯", "Prompt of the Day", "feeds/prompts"),
-    "security":   ("🔐", "Security Pulse",    "feeds/security"),
-    "market":     ("📊", "Market Pulse",      "feeds/market"),
-    "learning":   ("📚", "Learning Pick",     "feeds/learning"),
+    "news": ("📰", "Tech News Digest", "fetch_news.py"),
+    "trending": ("🔥", "GitHub Repository Snapshot", "fetch_trending.py"),
+    "research": ("🤖", "AI Research", "fetch_arxiv.py"),
+    "challenges": ("💡", "Coding Challenge", "generate_challenge.py"),
+    "tools": ("🛠️", "Tool Spotlight", "generate_tool.py"),
+    "prompts": ("🎯", "Prompt of the Day", "generate_prompt.py"),
+    "security": ("🔐", "Security Pulse", "fetch_security.py"),
+    "market": ("📊", "Hiring Thread Notes", "fetch_market.py"),
+    "learning": ("📚", "Learning Pick", "generate_learning.py"),
 }
 
 
-def _extract_body(content: str) -> str:
-    """Strip the file header (everything up to and including the first ---) and footer nav."""
-    lines = content.split("\n")
-    body_start = 0
-    for i, line in enumerate(lines):
-        if line.strip() == "---":
-            body_start = i + 1
-            break
-
-    body_lines = []
-    for line in lines[body_start:]:
-        if "← [Back to Index]" in line:
-            break
-        body_lines.append(line)
-
-    # Trim trailing blank lines
-    while body_lines and not body_lines[-1].strip():
-        body_lines.pop()
-
-    return "\n".join(body_lines)
+def archive_path(date):
+    day = datetime.date.fromisoformat(date)
+    return Path(f"archive/{day:%Y/%m}/{date}.md")
 
 
-def build_daily_archive():
-    """Compile today's content into one archive file."""
-    sections = []
-
-    for key, (emoji, title, feed_dir) in FEEDS.items():
-        feed_file = pathlib.Path(feed_dir) / f"{DATE}.md"
-        if feed_file.exists():
-            try:
-                content = feed_file.read_text(encoding="utf-8")
-                body = _extract_body(content)
-                sections.append(f"## {emoji} {title}\n\n{body}")
-            except OSError as e:
-                print(f"⚠️  Could not read {feed_file}: {e}")
-                sections.append(f"## {emoji} {title}\n\n*Could not read feed file.*")
-        else:
-            sections.append(f"## {emoji} {title}\n\n*Not yet published today.*")
-
-    separator = "\n\n---\n\n"
-    sections_body = separator.join(sections)
-    published_count = sum(1 for s in sections if "Not yet published" not in s and "Could not read" not in s)
-
-    archive_content = (
-        f"# 🗓️ TechPulse Daily Digest Archive — {DAY_NAME}\n\n"
-        f"> *Complete daily digest · [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*\n\n"
-        f"**Date:** {DATE}\n"
-        f"**Feeds:** {published_count}/9 published\n\n"
-        f"---\n\n"
-        f"{sections_body}\n\n"
-        f"---\n\n"
-        f"*[← Back to Index](../../INDEX.md) · [View Raw Feeds](../../feeds/) · [Full Archive](../)*\n"
-    )
-    ARCHIVE_FILE.write_text(archive_content, encoding="utf-8")
-    print(f"✅ Daily archive written: {ARCHIVE_FILE}")
+def body(content):
+    sections = content.split("\n---\n", 1)
+    content = sections[-1]
+    return content.split("*← [Back to Index]", 1)[0].strip()
 
 
-def count_files_in_feed(feed_dir: str) -> int:
-    """Count published markdown files in a feed directory."""
-    files = glob.glob(f"{feed_dir}/*.md")
-    return len([f for f in files if "README" not in f])
+def validate_feed(path, date, feed):
+    text = path.read_text(encoding="utf-8")
+    label = datetime.date.fromisoformat(date).strftime("%A, %B %d %Y")
+    if not text.startswith("# ") or (label not in text and date not in text):
+        raise ValueError(f"{path}: missing heading or matching publication date")
+    content = body(text)
+    if len(content.strip()) < 120:
+        raise ValueError(f"{path}: empty or insufficient body")
+    required = {
+        "challenges": ("PROBLEM:", "SOLUTION_PYTHON:", "SOLUTION_JS:"),
+        "prompts": ("THE_PROMPT:", "WHEN_TO_USE:"),
+        "learning": ("RESOURCE_TITLE:", "RESOURCE_URL:", "WHAT_YOULL_LEARN:"),
+    }
+    if any(field not in content for field in required.get(feed, ())):
+        raise ValueError(f"{path}: missing required generated fields")
+    if re.search(r"not yet published|could not read feed|api unavailable|TODO|lorem ipsum", text, re.I):
+        raise ValueError(f"{path}: placeholder or unavailable source")
+    if re.search(r"<(?:script|iframe|object|embed)\b|javascript:", text, re.I):
+        raise ValueError(f"{path}: unsafe markup")
+    fences = re.findall(r"^\s*(```+|~~~+)", text, re.M)
+    if len(fences) % 2:
+        raise ValueError(f"{path}: unterminated code fence")
+    if feed not in ("challenges", "prompts"):
+        urls = re.findall(r"https?://[^\s<>\]\)]+", content)
+        sources = [url for url in urls if urlsplit(url).hostname
+                   and not url.startswith("https://github.com/aredwan-xyz/")
+                   and urlsplit(url).hostname not in ("img.shields.io", "localhost", "127.0.0.1")]
+        if not sources:
+            raise ValueError(f"{path}: missing external source URL")
+    return text
 
 
-def _build_archive_table() -> tuple[str, int]:
-    """Scan the archive directory and return (markdown_table, total_count)."""
-    archive_base = pathlib.Path("archive")
-    rows = []
-    total = 0
+def validate_issue(root, date):
+    return {feed: validate_feed(root / f"feeds/{feed}/{date}.md", date, feed)
+            for feed in FEEDS}
 
-    if archive_base.exists():
-        for year_dir in sorted(archive_base.iterdir()):
-            if not year_dir.is_dir():
+
+def complete_dates(root):
+    # A legacy placeholder archive is not a completed publication.
+    dates = []
+    for path in sorted((root / "archive").glob("*/*/*.md"), reverse=True):
+        try:
+            if "**Feeds:** 9/9 published" not in path.read_text(encoding="utf-8"):
                 continue
-            for month_dir in sorted(year_dir.iterdir()):
-                if not month_dir.is_dir():
-                    continue
-                count = count_files_in_feed(str(month_dir))
-                total += count
-                try:
-                    month_name = datetime.datetime.strptime(month_dir.name, "%m").strftime("%B")
-                except ValueError:
-                    month_name = month_dir.name
-                rows.append(
-                    f"| {year_dir.name} | [{month_name}]({month_dir}/) | {count} issues |"
-                )
-
-    table = "\n".join(rows) if rows else "| — | — | — |"
-    return table, total
-
-
-def _get_days_active() -> int:
-    """Derive days active from the oldest archive file instead of a hardcoded date."""
-    all_archives = sorted(glob.glob("archive/**/*.md", recursive=True))
-    for path in all_archives:
-        stem = pathlib.Path(path).stem
-        try:
-            start = datetime.datetime.strptime(stem, "%Y-%m-%d")
-            return max(1, (datetime.datetime.now() - start).days + 1)
-        except ValueError:
+            validate_issue(root, path.stem)
+        except (ValueError, OSError):
             continue
-    return 1
+        dates.append(path.stem)
+    return dates
 
 
-def update_index():
-    """Update the master INDEX.md with all published dates."""
-    archive_files = sorted(
-        glob.glob("archive/**/*.md", recursive=True),
-        reverse=True
+def _rebase_links(content, feed):
+    def replace(match):
+        url = match.group(1)
+        if urlsplit(url).scheme or url.startswith(("#", "//")):
+            return match.group(0)
+        target = os.path.normpath(os.path.join("feeds", feed, url))
+        return "](" + os.path.relpath(target, "archive/2000/01") + ")"
+    return re.sub(r"\]\(([^\s)]+)\)", replace, content)
+
+
+def build_daily_archive(root, date, feeds):
+    day = datetime.date.fromisoformat(date)
+    sections = [f"## {FEEDS[feed][0]} {FEEDS[feed][1]}\n\n{_rebase_links(body(text), feed)}"
+                for feed, text in feeds.items()]
+    path = root / archive_path(date)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    text = (f"# TechPulse Daily Digest — {day:%A, %B %d %Y}\n\n"
+            f"**Date:** {date}\n**Feeds:** 9/9 published\n\n"
+            "> AI-assisted summaries and generated exercises; verify facts with linked sources.\n\n---\n\n"
+            + "\n\n---\n\n".join(sections)
+            + "\n\n---\n\n[Back to Index](../../../INDEX.md) · [Raw feeds](../../../feeds/)\n")
+    path.write_text(text, encoding="utf-8")
+
+
+def rebuild_navigation(root):
+    dates = complete_dates(root)
+    latest = dates[0] if dates else None
+    status = f"Last successful complete digest: **{latest}**" if latest else "No complete digest has passed validation."
+    table = "| Feed | Latest complete issue |\n|---|---|\n"
+    for feed, (emoji, title, _) in FEEDS.items():
+        link = f"[Read](feeds/{feed}/{latest}.md)" if latest else "Not available"
+        table += f"| {emoji} {title} | {link} |\n"
+    issues = "\n".join(f"- [{date}]({archive_path(date).as_posix()})" for date in dates[:30])
+    (root / "INDEX.md").write_text(
+        f"# TechPulse — Complete Issues\n\n{status}\n\n{table}\n"
+        f"## Recent complete issues\n\n{issues or 'None yet.'}\n\n"
+        "Historical files remain in [archive](archive/) and may be incomplete.\n\n[README](README.md)\n",
+        encoding="utf-8",
     )
-
-    recent_dates = []
-    for af in archive_files[:30]:  # Last 30 days
-        date_str = pathlib.Path(af).stem
-        try:
-            d = datetime.datetime.strptime(date_str, "%Y-%m-%d")
-            recent_dates.append((date_str, d.strftime("%A, %b %d"), af))
-        except ValueError:
-            continue
-
-    recent_table = "\n".join([
-        f"| [{date_str}]({af}) | {day_name} | [📰]("
-        f"feeds/news/{date_str}.md) [🔥](feeds/trending/{date_str}.md) "
-        f"[🤖](feeds/research/{date_str}.md) [💡](feeds/challenges/{date_str}.md) "
-        f"[🛠️](feeds/tools/{date_str}.md) [🎯](feeds/prompts/{date_str}.md) "
-        f"[🔐](feeds/security/{date_str}.md) [📊](feeds/market/{date_str}.md) "
-        f"[📚](feeds/learning/{date_str}.md) |"
-        for date_str, day_name, af in recent_dates
-    ]) or "| No entries yet | — | — |"
-
-    archive_table, _ = _build_archive_table()
-
-    index_content = f"""# 🗂️ TechPulse Daily Digest — Master Index
-
-> *Auto-updated daily · [Back to README](README.md)*
-
-**Last updated:** {DATE}
-
----
-
-## 📅 Recent Issues (Last 30 Days)
-
-| Date | Day | Feeds |
-|---|---|---|
-{recent_table}
-
----
-
-## 📁 Browse by Feed
-
-| Feed | Latest | Archive |
-|---|---|---|
-| 📰 Tech News | [Today](feeds/news/{DATE}.md) | [All Issues](feeds/news/) |
-| 🔥 GitHub Trending | [Today](feeds/trending/{DATE}.md) | [All Issues](feeds/trending/) |
-| 🤖 AI Research | [Today](feeds/research/{DATE}.md) | [All Issues](feeds/research/) |
-| 💡 Coding Challenges | [Today](feeds/challenges/{DATE}.md) | [All Issues](feeds/challenges/) |
-| 🛠️ Tool Spotlights | [Today](feeds/tools/{DATE}.md) | [All Issues](feeds/tools/) |
-| 🎯 Prompts | [Today](feeds/prompts/{DATE}.md) | [All Issues](feeds/prompts/) |
-| 🔐 Security | [Today](feeds/security/{DATE}.md) | [All Issues](feeds/security/) |
-| 📊 Market Pulse | [Today](feeds/market/{DATE}.md) | [All Issues](feeds/market/) |
-| 📚 Learning | [Today](feeds/learning/{DATE}.md) | [All Issues](feeds/learning/) |
-
----
-
-## 📂 Full Archive
-
-| Year | Month | Issues |
-|---|---|---|
-{archive_table}
-
----
-
-*← [Back to README](README.md)*
-"""
-    pathlib.Path("INDEX.md").write_text(index_content, encoding="utf-8")
-    print("✅ INDEX.md updated")
-
-
-def update_stats():
-    """Update STATS.md with current repo statistics."""
-    total_news = count_files_in_feed("feeds/news")
-    total_trending = count_files_in_feed("feeds/trending")
-    total_research = count_files_in_feed("feeds/research")
-    total_challenges = count_files_in_feed("feeds/challenges")
-    total_tools = count_files_in_feed("feeds/tools")
-    total_prompts = count_files_in_feed("feeds/prompts")
-    total_security = count_files_in_feed("feeds/security")
-    total_market = count_files_in_feed("feeds/market")
-    total_learning = count_files_in_feed("feeds/learning")
-
-    _, total_archives = _build_archive_table()
-
-    total_commits = (
-        total_news + total_trending + total_research + total_challenges +
-        total_tools + total_prompts + total_security + total_market +
-        total_learning + total_archives
+    counts = {feed: len(list((root / f"feeds/{feed}").glob("????-??-??.md"))) for feed in FEEDS}
+    (root / "STATS.md").write_text(
+        "# TechPulse — Content inventory\n\n" + status + "\n\n"
+        + f"Complete validated issues: {len(dates)}\n\n"
+        + "| Feed | Stored files (includes unvalidated legacy content) |\n|---|---:|\n"
+        + "".join(f"| {FEEDS[f][1]} | {n} |\n" for f, n in counts.items())
+        + "\nThese are file counts, not commits, users, or publication-success metrics.\n",
+        encoding="utf-8",
     )
-
-    days_active = _get_days_active()
-
-    stats_content = f"""# 📈 TechPulse Daily Digest — Stats
-
-> *Auto-updated with every daily index run*
-
-**Last updated:** {DATE}
-
----
-
-## 🔢 Totals
-
-| Metric | Count |
-|---|---|
-| 📅 Days active | {days_active} |
-| 📝 Total commits (content) | ~{total_commits * 10} |
-| 📰 News digests | {total_news} |
-| 🔥 Trending snapshots | {total_trending} |
-| 🤖 Research papers summarized | {total_research} |
-| 💡 Coding challenges | {total_challenges} |
-| 🛠️ Tool spotlights | {total_tools} |
-| 🎯 Prompts published | {total_prompts} |
-| 🔐 Security bulletins | {total_security} |
-| 📊 Market pulses | {total_market} |
-| 📚 Learning picks | {total_learning} |
-| 🗓️ Daily archives | {total_archives} |
-
----
-
-## 📊 Milestones
-
-- [ ] Day 1: First digest published
-- [ ] Day 7: One full week
-- [ ] Day 30: First month
-- [ ] 100 papers summarized
-- [ ] 100 challenges published
-- [ ] 500 prompts curated
-- [ ] 1,000 GitHub stars
-- [ ] 365 days: One full year
-
----
-
-*← [Back to README](README.md) · [Master Index](INDEX.md)*
-"""
-    pathlib.Path("STATS.md").write_text(stats_content, encoding="utf-8")
-    print("✅ STATS.md updated")
+    readme = root / "README.md"
+    if readme.exists():
+        text = readme.read_text(encoding="utf-8")
+        section = f"<!-- AUTO-UPDATED DAILY — DO NOT EDIT MANUALLY -->\n{status}\n\n{table}\n"
+        text, count = re.subn(
+            r"<!-- AUTO-UPDATED DAILY — DO NOT EDIT MANUALLY -->.*?(?=\n---)",
+            lambda _: section, text, flags=re.S,
+        )
+        if count != 1:
+            raise ValueError("README publication marker missing or duplicated")
+        readme.write_text(text, encoding="utf-8")
 
 
-def update_readme():
-    """Rewrite the AUTO-UPDATED section in README.md with today's feed links."""
-    readme_path = pathlib.Path("README.md")
-    if not readme_path.exists():
-        print("⚠️  README.md not found, skipping")
-        return
-
-    content = readme_path.read_text(encoding="utf-8")
-
-    new_section = (
-        f"<!-- AUTO-UPDATED DAILY — DO NOT EDIT MANUALLY -->\n"
-        f"> *Last updated: {DATE} · [Full archive](archive/)*\n\n"
-        f"| Feed | Today's Issue |\n"
-        f"|---|---|\n"
-        f"| 📰 Tech News | [Read →](feeds/news/{DATE}.md) |\n"
-        f"| 🔥 GitHub Trending | [Read →](feeds/trending/{DATE}.md) |\n"
-        f"| 🤖 AI Research | [Read →](feeds/research/{DATE}.md) |\n"
-        f"| 💡 Coding Challenge | [Read →](feeds/challenges/{DATE}.md) |\n"
-        f"| 🛠️ Tool Spotlight | [Read →](feeds/tools/{DATE}.md) |\n"
-        f"| 🎯 Prompt of the Day | [Read →](feeds/prompts/{DATE}.md) |\n"
-        f"| 🔐 Security Pulse | [Read →](feeds/security/{DATE}.md) |\n"
-        f"| 📊 Market Pulse | [Read →](feeds/market/{DATE}.md) |\n"
-        f"| 📚 Learning Pick | [Read →](feeds/learning/{DATE}.md) |"
-    )
-
-    updated = re.sub(
-        r"<!-- AUTO-UPDATED DAILY — DO NOT EDIT MANUALLY -->.*?(?=\n---)",
-        new_section,
-        content,
-        flags=re.DOTALL,
-    )
-
-    if updated == content:
-        print("⚠️  README.md auto-update marker not found, skipping")
-        return
-
-    readme_path.write_text(updated, encoding="utf-8")
-    print("✅ README.md updated with today's feed links")
+def publish_issue(root, date):
+    feeds = validate_issue(root, date)
+    build_daily_archive(root, date, feeds)
+    rebuild_navigation(root)
+    (root / "STATUS.json").write_text(json.dumps({
+        "status": "complete", "published_date": date,
+        "feeds_published": len(feeds), "feeds_expected": len(FEEDS),
+        "archive": archive_path(date).as_posix(),
+    }, indent=2) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
-    print("🗓️ Building daily archive...")
-    build_daily_archive()
-
-    print("📋 Updating master index...")
-    update_index()
-
-    print("📈 Updating stats...")
-    update_stats()
-
-    print("📝 Updating README...")
-    update_readme()
-
-    print("✅ All done!")
+    # Navigation repair is safe even when today's generators have failed.
+    rebuild_navigation(Path.cwd())

@@ -1,76 +1,23 @@
-# 🗂️ TechPulse Daily Digest — Master Index
+# TechPulse — Complete Issues
 
-> *Auto-updated daily · [Back to README](README.md)*
+No complete digest has passed validation.
 
-**Last updated:** 2026-10-28
+| Feed | Latest complete issue |
+|---|---|
+| 📰 Tech News Digest | Not available |
+| 🔥 GitHub Repository Snapshot | Not available |
+| 🤖 AI Research | Not available |
+| 💡 Coding Challenge | Not available |
+| 🛠️ Tool Spotlight | Not available |
+| 🎯 Prompt of the Day | Not available |
+| 🔐 Security Pulse | Not available |
+| 📊 Hiring Thread Notes | Not available |
+| 📚 Learning Pick | Not available |
 
----
+## Recent complete issues
 
-## 📅 Recent Issues (Last 30 Days)
+None yet.
 
-| Date | Day | Feeds |
-|---|---|---|
-| [2026-10-28](archive/2026/10/2026-10-28.md) | Wednesday, Oct 28 | [📰](feeds/news/2026-10-28.md) [🔥](feeds/trending/2026-10-28.md) [🤖](feeds/research/2026-10-28.md) [💡](feeds/challenges/2026-10-28.md) [🛠️](feeds/tools/2026-10-28.md) [🎯](feeds/prompts/2026-10-28.md) [🔐](feeds/security/2026-10-28.md) [📊](feeds/market/2026-10-28.md) [📚](feeds/learning/2026-10-28.md) |
-| [2026-10-27](archive/2026/10/2026-10-27.md) | Tuesday, Oct 27 | [📰](feeds/news/2026-10-27.md) [🔥](feeds/trending/2026-10-27.md) [🤖](feeds/research/2026-10-27.md) [💡](feeds/challenges/2026-10-27.md) [🛠️](feeds/tools/2026-10-27.md) [🎯](feeds/prompts/2026-10-27.md) [🔐](feeds/security/2026-10-27.md) [📊](feeds/market/2026-10-27.md) [📚](feeds/learning/2026-10-27.md) |
-| [2026-10-26](archive/2026/10/2026-10-26.md) | Monday, Oct 26 | [📰](feeds/news/2026-10-26.md) [🔥](feeds/trending/2026-10-26.md) [🤖](feeds/research/2026-10-26.md) [💡](feeds/challenges/2026-10-26.md) [🛠️](feeds/tools/2026-10-26.md) [🎯](feeds/prompts/2026-10-26.md) [🔐](feeds/security/2026-10-26.md) [📊](feeds/market/2026-10-26.md) [📚](feeds/learning/2026-10-26.md) |
-| [2026-10-25](archive/2026/10/2026-10-25.md) | Sunday, Oct 25 | [📰](feeds/news/2026-10-25.md) [🔥](feeds/trending/2026-10-25.md) [🤖](feeds/research/2026-10-25.md) [💡](feeds/challenges/2026-10-25.md) [🛠️](feeds/tools/2026-10-25.md) [🎯](feeds/prompts/2026-10-25.md) [🔐](feeds/security/2026-10-25.md) [📊](feeds/market/2026-10-25.md) [📚](feeds/learning/2026-10-25.md) |
-| [2026-10-24](archive/2026/10/2026-10-24.md) | Saturday, Oct 24 | [📰](feeds/news/2026-10-24.md) [🔥](feeds/trending/2026-10-24.md) [🤖](feeds/research/2026-10-24.md) [💡](feeds/challenges/2026-10-24.md) [🛠️](feeds/tools/2026-10-24.md) [🎯](feeds/prompts/2026-10-24.md) [🔐](feeds/security/2026-10-24.md) [📊](feeds/market/2026-10-24.md) [📚](feeds/learning/2026-10-24.md) |
-| [2026-10-23](archive/2026/10/2026-10-23.md) | Friday, Oct 23 | [📰](feeds/news/2026-10-23.md) [🔥](feeds/trending/2026-10-23.md) [🤖](feeds/research/2026-10-23.md) [💡](feeds/challenges/2026-10-23.md) [🛠️](feeds/tools/2026-10-23.md) [🎯](feeds/prompts/2026-10-23.md) [🔐](feeds/security/2026-10-23.md) [📊](feeds/market/2026-10-23.md) [📚](feeds/learning/2026-10-23.md) |
-| [2026-10-22](archive/2026/10/2026-10-22.md) | Thursday, Oct 22 | [📰](feeds/news/2026-10-22.md) [🔥](feeds/trending/2026-10-22.md) [🤖](feeds/research/2026-10-22.md) [💡](feeds/challenges/2026-10-22.md) [🛠️](feeds/tools/2026-10-22.md) [🎯](feeds/prompts/2026-10-22.md) [🔐](feeds/security/2026-10-22.md) [📊](feeds/market/2026-10-22.md) [📚](feeds/learning/2026-10-22.md) |
-| [2026-10-21](archive/2026/10/2026-10-21.md) | Wednesday, Oct 21 | [📰](feeds/news/2026-10-21.md) [🔥](feeds/trending/2026-10-21.md) [🤖](feeds/research/2026-10-21.md) [💡](feeds/challenges/2026-10-21.md) [🛠️](feeds/tools/2026-10-21.md) [🎯](feeds/prompts/2026-10-21.md) [🔐](feeds/security/2026-10-21.md) [📊](feeds/market/2026-10-21.md) [📚](feeds/learning/2026-10-21.md) |
-| [2026-10-20](archive/2026/10/2026-10-20.md) | Tuesday, Oct 20 | [📰](feeds/news/2026-10-20.md) [🔥](feeds/trending/2026-10-20.md) [🤖](feeds/research/2026-10-20.md) [💡](feeds/challenges/2026-10-20.md) [🛠️](feeds/tools/2026-10-20.md) [🎯](feeds/prompts/2026-10-20.md) [🔐](feeds/security/2026-10-20.md) [📊](feeds/market/2026-10-20.md) [📚](feeds/learning/2026-10-20.md) |
-| [2026-10-19](archive/2026/10/2026-10-19.md) | Monday, Oct 19 | [📰](feeds/news/2026-10-19.md) [🔥](feeds/trending/2026-10-19.md) [🤖](feeds/research/2026-10-19.md) [💡](feeds/challenges/2026-10-19.md) [🛠️](feeds/tools/2026-10-19.md) [🎯](feeds/prompts/2026-10-19.md) [🔐](feeds/security/2026-10-19.md) [📊](feeds/market/2026-10-19.md) [📚](feeds/learning/2026-10-19.md) |
-| [2026-10-18](archive/2026/10/2026-10-18.md) | Sunday, Oct 18 | [📰](feeds/news/2026-10-18.md) [🔥](feeds/trending/2026-10-18.md) [🤖](feeds/research/2026-10-18.md) [💡](feeds/challenges/2026-10-18.md) [🛠️](feeds/tools/2026-10-18.md) [🎯](feeds/prompts/2026-10-18.md) [🔐](feeds/security/2026-10-18.md) [📊](feeds/market/2026-10-18.md) [📚](feeds/learning/2026-10-18.md) |
-| [2026-10-17](archive/2026/10/2026-10-17.md) | Saturday, Oct 17 | [📰](feeds/news/2026-10-17.md) [🔥](feeds/trending/2026-10-17.md) [🤖](feeds/research/2026-10-17.md) [💡](feeds/challenges/2026-10-17.md) [🛠️](feeds/tools/2026-10-17.md) [🎯](feeds/prompts/2026-10-17.md) [🔐](feeds/security/2026-10-17.md) [📊](feeds/market/2026-10-17.md) [📚](feeds/learning/2026-10-17.md) |
-| [2026-10-16](archive/2026/10/2026-10-16.md) | Friday, Oct 16 | [📰](feeds/news/2026-10-16.md) [🔥](feeds/trending/2026-10-16.md) [🤖](feeds/research/2026-10-16.md) [💡](feeds/challenges/2026-10-16.md) [🛠️](feeds/tools/2026-10-16.md) [🎯](feeds/prompts/2026-10-16.md) [🔐](feeds/security/2026-10-16.md) [📊](feeds/market/2026-10-16.md) [📚](feeds/learning/2026-10-16.md) |
-| [2026-10-15](archive/2026/10/2026-10-15.md) | Thursday, Oct 15 | [📰](feeds/news/2026-10-15.md) [🔥](feeds/trending/2026-10-15.md) [🤖](feeds/research/2026-10-15.md) [💡](feeds/challenges/2026-10-15.md) [🛠️](feeds/tools/2026-10-15.md) [🎯](feeds/prompts/2026-10-15.md) [🔐](feeds/security/2026-10-15.md) [📊](feeds/market/2026-10-15.md) [📚](feeds/learning/2026-10-15.md) |
-| [2026-10-14](archive/2026/10/2026-10-14.md) | Wednesday, Oct 14 | [📰](feeds/news/2026-10-14.md) [🔥](feeds/trending/2026-10-14.md) [🤖](feeds/research/2026-10-14.md) [💡](feeds/challenges/2026-10-14.md) [🛠️](feeds/tools/2026-10-14.md) [🎯](feeds/prompts/2026-10-14.md) [🔐](feeds/security/2026-10-14.md) [📊](feeds/market/2026-10-14.md) [📚](feeds/learning/2026-10-14.md) |
-| [2026-10-13](archive/2026/10/2026-10-13.md) | Tuesday, Oct 13 | [📰](feeds/news/2026-10-13.md) [🔥](feeds/trending/2026-10-13.md) [🤖](feeds/research/2026-10-13.md) [💡](feeds/challenges/2026-10-13.md) [🛠️](feeds/tools/2026-10-13.md) [🎯](feeds/prompts/2026-10-13.md) [🔐](feeds/security/2026-10-13.md) [📊](feeds/market/2026-10-13.md) [📚](feeds/learning/2026-10-13.md) |
-| [2026-10-12](archive/2026/10/2026-10-12.md) | Monday, Oct 12 | [📰](feeds/news/2026-10-12.md) [🔥](feeds/trending/2026-10-12.md) [🤖](feeds/research/2026-10-12.md) [💡](feeds/challenges/2026-10-12.md) [🛠️](feeds/tools/2026-10-12.md) [🎯](feeds/prompts/2026-10-12.md) [🔐](feeds/security/2026-10-12.md) [📊](feeds/market/2026-10-12.md) [📚](feeds/learning/2026-10-12.md) |
-| [2026-10-11](archive/2026/10/2026-10-11.md) | Sunday, Oct 11 | [📰](feeds/news/2026-10-11.md) [🔥](feeds/trending/2026-10-11.md) [🤖](feeds/research/2026-10-11.md) [💡](feeds/challenges/2026-10-11.md) [🛠️](feeds/tools/2026-10-11.md) [🎯](feeds/prompts/2026-10-11.md) [🔐](feeds/security/2026-10-11.md) [📊](feeds/market/2026-10-11.md) [📚](feeds/learning/2026-10-11.md) |
-| [2026-10-10](archive/2026/10/2026-10-10.md) | Saturday, Oct 10 | [📰](feeds/news/2026-10-10.md) [🔥](feeds/trending/2026-10-10.md) [🤖](feeds/research/2026-10-10.md) [💡](feeds/challenges/2026-10-10.md) [🛠️](feeds/tools/2026-10-10.md) [🎯](feeds/prompts/2026-10-10.md) [🔐](feeds/security/2026-10-10.md) [📊](feeds/market/2026-10-10.md) [📚](feeds/learning/2026-10-10.md) |
-| [2026-10-09](archive/2026/10/2026-10-09.md) | Friday, Oct 09 | [📰](feeds/news/2026-10-09.md) [🔥](feeds/trending/2026-10-09.md) [🤖](feeds/research/2026-10-09.md) [💡](feeds/challenges/2026-10-09.md) [🛠️](feeds/tools/2026-10-09.md) [🎯](feeds/prompts/2026-10-09.md) [🔐](feeds/security/2026-10-09.md) [📊](feeds/market/2026-10-09.md) [📚](feeds/learning/2026-10-09.md) |
-| [2026-10-08](archive/2026/10/2026-10-08.md) | Thursday, Oct 08 | [📰](feeds/news/2026-10-08.md) [🔥](feeds/trending/2026-10-08.md) [🤖](feeds/research/2026-10-08.md) [💡](feeds/challenges/2026-10-08.md) [🛠️](feeds/tools/2026-10-08.md) [🎯](feeds/prompts/2026-10-08.md) [🔐](feeds/security/2026-10-08.md) [📊](feeds/market/2026-10-08.md) [📚](feeds/learning/2026-10-08.md) |
-| [2026-10-07](archive/2026/10/2026-10-07.md) | Wednesday, Oct 07 | [📰](feeds/news/2026-10-07.md) [🔥](feeds/trending/2026-10-07.md) [🤖](feeds/research/2026-10-07.md) [💡](feeds/challenges/2026-10-07.md) [🛠️](feeds/tools/2026-10-07.md) [🎯](feeds/prompts/2026-10-07.md) [🔐](feeds/security/2026-10-07.md) [📊](feeds/market/2026-10-07.md) [📚](feeds/learning/2026-10-07.md) |
-| [2026-10-06](archive/2026/10/2026-10-06.md) | Tuesday, Oct 06 | [📰](feeds/news/2026-10-06.md) [🔥](feeds/trending/2026-10-06.md) [🤖](feeds/research/2026-10-06.md) [💡](feeds/challenges/2026-10-06.md) [🛠️](feeds/tools/2026-10-06.md) [🎯](feeds/prompts/2026-10-06.md) [🔐](feeds/security/2026-10-06.md) [📊](feeds/market/2026-10-06.md) [📚](feeds/learning/2026-10-06.md) |
-| [2026-10-05](archive/2026/10/2026-10-05.md) | Monday, Oct 05 | [📰](feeds/news/2026-10-05.md) [🔥](feeds/trending/2026-10-05.md) [🤖](feeds/research/2026-10-05.md) [💡](feeds/challenges/2026-10-05.md) [🛠️](feeds/tools/2026-10-05.md) [🎯](feeds/prompts/2026-10-05.md) [🔐](feeds/security/2026-10-05.md) [📊](feeds/market/2026-10-05.md) [📚](feeds/learning/2026-10-05.md) |
-| [2026-10-04](archive/2026/10/2026-10-04.md) | Sunday, Oct 04 | [📰](feeds/news/2026-10-04.md) [🔥](feeds/trending/2026-10-04.md) [🤖](feeds/research/2026-10-04.md) [💡](feeds/challenges/2026-10-04.md) [🛠️](feeds/tools/2026-10-04.md) [🎯](feeds/prompts/2026-10-04.md) [🔐](feeds/security/2026-10-04.md) [📊](feeds/market/2026-10-04.md) [📚](feeds/learning/2026-10-04.md) |
-| [2026-10-03](archive/2026/10/2026-10-03.md) | Saturday, Oct 03 | [📰](feeds/news/2026-10-03.md) [🔥](feeds/trending/2026-10-03.md) [🤖](feeds/research/2026-10-03.md) [💡](feeds/challenges/2026-10-03.md) [🛠️](feeds/tools/2026-10-03.md) [🎯](feeds/prompts/2026-10-03.md) [🔐](feeds/security/2026-10-03.md) [📊](feeds/market/2026-10-03.md) [📚](feeds/learning/2026-10-03.md) |
-| [2026-10-02](archive/2026/10/2026-10-02.md) | Friday, Oct 02 | [📰](feeds/news/2026-10-02.md) [🔥](feeds/trending/2026-10-02.md) [🤖](feeds/research/2026-10-02.md) [💡](feeds/challenges/2026-10-02.md) [🛠️](feeds/tools/2026-10-02.md) [🎯](feeds/prompts/2026-10-02.md) [🔐](feeds/security/2026-10-02.md) [📊](feeds/market/2026-10-02.md) [📚](feeds/learning/2026-10-02.md) |
-| [2026-10-01](archive/2026/10/2026-10-01.md) | Thursday, Oct 01 | [📰](feeds/news/2026-10-01.md) [🔥](feeds/trending/2026-10-01.md) [🤖](feeds/research/2026-10-01.md) [💡](feeds/challenges/2026-10-01.md) [🛠️](feeds/tools/2026-10-01.md) [🎯](feeds/prompts/2026-10-01.md) [🔐](feeds/security/2026-10-01.md) [📊](feeds/market/2026-10-01.md) [📚](feeds/learning/2026-10-01.md) |
-| [2026-09-30](archive/2026/09/2026-09-30.md) | Wednesday, Sep 30 | [📰](feeds/news/2026-09-30.md) [🔥](feeds/trending/2026-09-30.md) [🤖](feeds/research/2026-09-30.md) [💡](feeds/challenges/2026-09-30.md) [🛠️](feeds/tools/2026-09-30.md) [🎯](feeds/prompts/2026-09-30.md) [🔐](feeds/security/2026-09-30.md) [📊](feeds/market/2026-09-30.md) [📚](feeds/learning/2026-09-30.md) |
-| [2026-09-29](archive/2026/09/2026-09-29.md) | Tuesday, Sep 29 | [📰](feeds/news/2026-09-29.md) [🔥](feeds/trending/2026-09-29.md) [🤖](feeds/research/2026-09-29.md) [💡](feeds/challenges/2026-09-29.md) [🛠️](feeds/tools/2026-09-29.md) [🎯](feeds/prompts/2026-09-29.md) [🔐](feeds/security/2026-09-29.md) [📊](feeds/market/2026-09-29.md) [📚](feeds/learning/2026-09-29.md) |
+Historical files remain in [archive](archive/) and may be incomplete.
 
----
-
-## 📁 Browse by Feed
-
-| Feed | Latest | Archive |
-|---|---|---|
-| 📰 Tech News | [Today](feeds/news/2026-10-28.md) | [All Issues](feeds/news/) |
-| 🔥 GitHub Trending | [Today](feeds/trending/2026-10-28.md) | [All Issues](feeds/trending/) |
-| 🤖 AI Research | [Today](feeds/research/2026-10-28.md) | [All Issues](feeds/research/) |
-| 💡 Coding Challenges | [Today](feeds/challenges/2026-10-28.md) | [All Issues](feeds/challenges/) |
-| 🛠️ Tool Spotlights | [Today](feeds/tools/2026-10-28.md) | [All Issues](feeds/tools/) |
-| 🎯 Prompts | [Today](feeds/prompts/2026-10-28.md) | [All Issues](feeds/prompts/) |
-| 🔐 Security | [Today](feeds/security/2026-10-28.md) | [All Issues](feeds/security/) |
-| 📊 Market Pulse | [Today](feeds/market/2026-10-28.md) | [All Issues](feeds/market/) |
-| 📚 Learning | [Today](feeds/learning/2026-10-28.md) | [All Issues](feeds/learning/) |
-
----
-
-## 📂 Full Archive
-
-| Year | Month | Issues |
-|---|---|---|
-| 2026 | [April](archive/2026/04/) | 1 issues |
-| 2026 | [May](archive/2026/05/) | 30 issues |
-| 2026 | [June](archive/2026/06/) | 30 issues |
-| 2026 | [July](archive/2026/07/) | 30 issues |
-| 2026 | [August](archive/2026/08/) | 31 issues |
-| 2026 | [September](archive/2026/09/) | 30 issues |
-| 2026 | [October](archive/2026/10/) | 28 issues |
-
----
-
-*← [Back to README](README.md)*
+[README](README.md)

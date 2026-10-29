@@ -109,7 +109,7 @@ def write_file(paper: dict, explanation: str):
 
     content = f"""# 🤖 AI Research — {DAY_NAME}
 
-> *Daily paper summary by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily) · Category: `{CATEGORY}`*
+> *AI-assisted paper summary by [TechPulse Daily Digest](https://github.com/aredwan-xyz/techpulse-daily) · Category: `{CATEGORY}`*
 
 ---
 

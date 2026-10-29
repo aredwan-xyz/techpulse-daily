@@ -31,12 +31,12 @@ def fetch_recent_cves(limit: int = 10) -> tuple[list[dict], bool]:
     genuinely quiet day (api_available=True, cves=[]).
     """
     import datetime
-    end_date = datetime.datetime.utcnow()
+    end_date = datetime.datetime.now(datetime.timezone.utc)
     start_date = end_date - datetime.timedelta(days=DAYS_BACK)
 
     # NVD API v2 requires ISO 8601 with UTC timezone designator
-    start_str = urllib.parse.quote(start_date.strftime("%Y-%m-%dT%H:%M:%S.000") + " UTC+00:00")
-    end_str = urllib.parse.quote(end_date.strftime("%Y-%m-%dT%H:%M:%S.000") + " UTC+00:00")
+    start_str = urllib.parse.quote(start_date.isoformat(timespec="milliseconds"))
+    end_str = urllib.parse.quote(end_date.isoformat(timespec="milliseconds"))
 
     url = (
         f"https://services.nvd.nist.gov/rest/json/cves/2.0?"
@@ -84,12 +84,9 @@ def fetch_recent_cves(limit: int = 10) -> tuple[list[dict], bool]:
 def generate_security_bulletin(cves: list[dict], api_available: bool) -> str:
     """Explain CVEs in developer-friendly language using Gemini."""
     if not api_available:
-        cves_text = (
-            "⚠️ The NVD API was unavailable today. "
-            "Check https://nvd.nist.gov/ directly for recent vulnerabilities."
-        )
+        raise ValueError("NVD source unavailable; refusing an unsourced security bulletin")
     elif not cves:
-        cves_text = "No HIGH/CRITICAL CVEs published in the last 48 hours. Relatively quiet security day."
+        cves_text = "The bounded NVD HIGH-severity query returned no entries. This is not proof that no vulnerabilities exist."
     else:
         cves_text = "\n".join([
             f"- {c['id']} (CVSS {c['score']}, {c['severity']}): {c['description'][:200]}"
@@ -133,8 +130,8 @@ def write_file(cves: list[dict], bulletin: str, api_available: bool):
 
     content = f"""# 🔐 Security Pulse — {DAY_NAME}
 
-> *Daily security bulletin by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*
-> *Data source: [NIST NVD](https://nvd.nist.gov/) · Filtered to HIGH/CRITICAL severity*
+> *AI-assisted security notes by [TechPulse Daily Digest](https://github.com/aredwan-xyz/techpulse-daily)*
+> *Data source: [NIST NVD](https://nvd.nist.gov/) · Bounded HIGH-severity query; not exhaustive. Verify affected versions and fixes in the original advisories.*
 
 ---
 

@@ -93,7 +93,7 @@ def write_file(pick: dict):
 
     content = f"""# {RTYPE_EMOJI} Learning Pick — {DAY_NAME}
 
-> *Daily learning curation by [TechPulse Daily Digest](https://github.com/aredwan-xyz/devpulse-daily)*
+> *AI-suggested learning resource by [TechPulse Daily Digest](https://github.com/aredwan-xyz/techpulse-daily). Confirm availability, pricing and source details before enrolling.*
 
 **Resource type:** {RTYPE_EMOJI} {RTYPE_NAME}
 **Topic:** {TOPIC}
