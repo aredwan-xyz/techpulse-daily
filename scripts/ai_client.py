@@ -2,7 +2,7 @@
 """
 ai_client.py
 Multi-provider AI client with automatic fallback.
-Priority: Gemini (2.0-flash → 1.5-flash) → Groq → GitHub Models
+Priority: Gemini (newest Flash → older Flash) → Groq → GitHub Models
 """
 
 import os
@@ -12,14 +12,19 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
-_GEMINI_MODELS = ["gemini-2.0-flash", "gemini-2.0-flash-lite"]
+_GEMINI_MODELS = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-2.5-flash"]
 _GROQ_MODEL = "llama-3.3-70b-versatile"
-_GITHUB_MODEL = "gpt-4o-mini"
+_GITHUB_MODEL = "openai/gpt-4o-mini"
 
 
 def _is_quota_error(e: Exception) -> bool:
     msg = str(e)
     return any(k in msg for k in ("429", "RESOURCE_EXHAUSTED", "quota", "rate limit"))
+
+
+def _is_model_gone(e: Exception) -> bool:
+    msg = str(e)
+    return "404" in msg or "NOT_FOUND" in msg
 
 
 def _call_gemini(system: str, user: str, max_tokens: int) -> str:
@@ -41,8 +46,8 @@ def _call_gemini(system: str, user: str, max_tokens: int) -> str:
             print(f"✅ Used Gemini ({model})")
             return response.text
         except Exception as e:
-            if _is_quota_error(e):
-                print(f"⚠️  Gemini {model} quota exceeded, trying next model...", file=sys.stderr)
+            if _is_quota_error(e) or _is_model_gone(e):
+                print(f"⚠️  Gemini {model} unavailable ({str(e)[:80]}), trying next model...", file=sys.stderr)
                 last_err = e
                 continue
             raise
@@ -90,7 +95,7 @@ def _llm(system: str, user: str, max_tokens: int = 1500) -> str:
     if GITHUB_TOKEN:
         try:
             result = _call_openai_compat(
-                "https://models.inference.ai.azure.com", GITHUB_TOKEN, _GITHUB_MODEL,
+                "https://models.github.ai/inference", GITHUB_TOKEN, _GITHUB_MODEL,
                 system, user, max_tokens,
             )
             print(f"✅ Used GitHub Models ({_GITHUB_MODEL})")
