@@ -47,7 +47,7 @@ def _call_gemini(system: str, user: str, max_tokens: int) -> str:
             return response.text
         except Exception as e:
             if _is_quota_error(e) or _is_model_gone(e):
-                print(f"⚠️  Gemini {model} unavailable ({str(e)[:80]}), trying next model...", file=sys.stderr)
+                print(f"⚠️  Gemini {model} unavailable ({str(e)[:240]}), trying next model...", file=sys.stderr)
                 last_err = e
                 continue
             raise
