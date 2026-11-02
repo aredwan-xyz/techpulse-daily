@@ -16,6 +16,7 @@ GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 _GEMINI_MODELS = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite"]
 _TRANSIENT_RETRIES = 3
 _TRANSIENT_BACKOFF = (2, 6)
+_GEMINI_TIMEOUT_MS = 60_000
 _GROQ_MODEL = "llama-3.3-70b-versatile"
 _GITHUB_MODEL = "openai/gpt-4o-mini"
 
@@ -28,7 +29,8 @@ def _is_quota_error(e: Exception) -> bool:
 def _is_transient(e: Exception) -> bool:
     msg = str(e)
     return any(k in msg for k in ("500", "502", "503", "504", "UNAVAILABLE", "INTERNAL",
-                                  "DEADLINE_EXCEEDED", "high demand", "timed out", "Connection"))
+                                  "DEADLINE_EXCEEDED", "high demand", "timed out", "Timeout", "Connection",
+                                  "disconnected", "RemoteProtocolError", "ReadError"))
 
 
 def _is_model_gone(e: Exception) -> bool:
@@ -40,7 +42,10 @@ def _call_gemini(system: str, user: str, max_tokens: int) -> str:
     from google import genai
     from google.genai import types
 
-    client = genai.Client(api_key=GEMINI_API_KEY)
+    client = genai.Client(
+        api_key=GEMINI_API_KEY,
+        http_options=types.HttpOptions(timeout=_GEMINI_TIMEOUT_MS),
+    )
     last_err = None
     for model in _GEMINI_MODELS:
         for attempt in range(_TRANSIENT_RETRIES):
