@@ -7,12 +7,15 @@ Priority: Gemini (newest Flash → older Flash) → Groq → GitHub Models
 
 import os
 import sys
+import time
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
-_GEMINI_MODELS = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-2.5-flash"]
+_GEMINI_MODELS = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite"]
+_TRANSIENT_RETRIES = 3
+_TRANSIENT_BACKOFF = (2, 6)
 _GROQ_MODEL = "llama-3.3-70b-versatile"
 _GITHUB_MODEL = "openai/gpt-4o-mini"
 
@@ -20,6 +23,12 @@ _GITHUB_MODEL = "openai/gpt-4o-mini"
 def _is_quota_error(e: Exception) -> bool:
     msg = str(e)
     return any(k in msg for k in ("429", "RESOURCE_EXHAUSTED", "quota", "rate limit"))
+
+
+def _is_transient(e: Exception) -> bool:
+    msg = str(e)
+    return any(k in msg for k in ("500", "502", "503", "504", "UNAVAILABLE", "INTERNAL",
+                                  "DEADLINE_EXCEEDED", "high demand", "timed out", "Connection"))
 
 
 def _is_model_gone(e: Exception) -> bool:
@@ -34,23 +43,32 @@ def _call_gemini(system: str, user: str, max_tokens: int) -> str:
     client = genai.Client(api_key=GEMINI_API_KEY)
     last_err = None
     for model in _GEMINI_MODELS:
-        try:
-            response = client.models.generate_content(
-                model=model,
-                contents=user,
-                config=types.GenerateContentConfig(
-                    system_instruction=system,
-                    max_output_tokens=max_tokens,
-                ),
-            )
-            print(f"✅ Used Gemini ({model})")
-            return response.text
-        except Exception as e:
-            if _is_quota_error(e) or _is_model_gone(e):
-                print(f"⚠️  Gemini {model} unavailable ({str(e)[:240]}), trying next model...", file=sys.stderr)
+        for attempt in range(_TRANSIENT_RETRIES):
+            try:
+                response = client.models.generate_content(
+                    model=model,
+                    contents=user,
+                    config=types.GenerateContentConfig(
+                        system_instruction=system,
+                        max_output_tokens=max_tokens,
+                    ),
+                )
+                print(f"✅ Used Gemini ({model})")
+                return response.text
+            except Exception as e:
                 last_err = e
-                continue
-            raise
+                if _is_transient(e) and not _is_quota_error(e):
+                    if attempt < _TRANSIENT_RETRIES - 1:
+                        wait = _TRANSIENT_BACKOFF[min(attempt, len(_TRANSIENT_BACKOFF) - 1)]
+                        print(f"⚠️  Gemini {model} overloaded, retry {attempt + 1} in {wait}s...", file=sys.stderr)
+                        time.sleep(wait)
+                        continue
+                    print(f"⚠️  Gemini {model} still overloaded, trying next model...", file=sys.stderr)
+                    break
+                if _is_quota_error(e) or _is_model_gone(e):
+                    print(f"⚠️  Gemini {model} unavailable ({str(e)[:240]}), trying next model...", file=sys.stderr)
+                    break
+                raise
     raise last_err
 
 
